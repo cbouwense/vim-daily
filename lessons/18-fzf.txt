@@ -1,0 +1,48 @@
+title: Fuzzy finding with fzf.vim
+keys: :Files  :Buffers  :Rg  :Lines
+require: :(Files|Buffers|Rg|Lines|BLines) :: :Files, :Buffers or :Rg
+verify: no
+ext: ts
+
+:e needs the path. A fuzzy finder needs a few letters of it. The fzf.vim
+plugin adds these commands:
+
+  :Files       pick a file under the current directory
+  :Buffers     pick one of the open buffers
+  :Rg word     search file contents (needs ripgrep), then pick a match
+  :Lines       search the lines of the open buffers
+
+Type letters to narrow the list; they need not be adjacent ("pygw" finds
+payment-gateway.ts). Ctrl-j / Ctrl-k move, Enter opens, Esc cancels.
+No fzf.vim on this machine? Use :e today and choose override afterwards.
+
+== Open payment-gateway.ts with :Files and a few letters. Set retries to 5.
+@ file: payment-gateway.ts
+export const paymentGateway = {
+  endpoint: "https://pay.example.com/charge",
+  retries: 3,
+};
+-- :e payment-gateway.ts<CR>
+-- /3<CR>
+-- r5
+== Open inventory-sync.ts with :Files and change "hourly" to "daily".
+== Then come back to the practice file with :Buffers.
+@ file: inventory-sync.ts
+export const inventorySync = {
+  schedule: "hourly",
+  batchSize: 200,
+};
+-- :e inventory-sync.ts<CR>
+-- /hourly<CR>
+-- cwdaily<Esc>
+== One file has a FIXME line. Find it with ":Rg FIXME" (or :Files and look),
+== jump to it, and delete that line.
+@ file: shipping-rates.ts
+export function shippingRate(weightKg: number) {
+  // FIXME delete this debugging override
+  if (weightKg > 20) return 25;
+  return 8;
+}
+-- :e shipping-rates.ts<CR>
+-- /FIXME<CR>
+-- dd

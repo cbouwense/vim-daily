@@ -1,0 +1,42 @@
+title: Text objects: iw aw
+keys: iw  aw  ciw  diw  daw  yiw
+require: [cdy]iw :: ciw, diw or yiw
+require: [cdy]aw :: daw
+ext: java
+
+A text object is a region around the cursor. After an operator it lets you
+act on a whole word, wherever in that word the cursor happens to be:
+
+  iw   "inner word": the word itself
+  aw   "a word": the word plus the space next to it
+
+  ciw  change the word             yiw  yank the word
+  diw  delete the word only        daw  delete the word and its space
+
+cw and dw work from the cursor onward, so you first have to go to the start
+of the word. With iw and aw anywhere inside it is fine. Use ciw to replace
+a word and daw to remove one without leaving a double space.
+
+== Rename pendingOrders to settledOrders: cursor anywhere in the name, ciw.
+private final List<Order> pendingOrders = new ArrayList<>();
+-- fg
+-- ciwsettledOrders<Esc>
+== Remove the synchronized modifier: cursor anywhere inside it, then daw.
+public synchronized void resetCounters() {
+  counters.clear();
+}
+-- fz
+-- daw
+== Yank warehouseId with yiw (cursor anywhere in it). On the next line, put
+== it before the ; with $ and P.
+public Shipment(String warehouseId) {
+  this.warehouseId = ;
+}
+-- fw
+-- yiw
+-- j$
+-- P
+== close() takes no argument here: cursor anywhere in false, then diw.
+session.close(false);
+-- fa
+-- diw

@@ -1,0 +1,74 @@
+title: Marks: m ' `
+keys: ma  'a  `a  ''  d'a  y'a
+require: m[a-z] :: ma
+require: '[a-z] :: 'a
+require: `[a-z] :: `a
+require: '' :: ''
+require: d'[a-z] :: d'a
+require: y'[a-z] :: y'a
+ext: ts
+
+A mark is a named position that you can jump back to.
+
+  ma   set mark a at the cursor (any letter from a to z)
+  'a   jump to the line of mark a, on its first non-blank character
+  `a   jump to the exact line and column of mark a
+  ''   jump back to the line you last jumped from
+
+'a and `a are motions, so operators take them:
+
+  d'a  delete from the cursor line through the line of mark a
+  y'a  yank those lines              d`a  delete up to the marked character
+
+== formatMoney was renamed formatPrice. Set mark a on the import line (ma)
+== and go down 4 lines. 'a jumps back to the mark: fix the import with cw.
+== '' returns to the line you left: fix the call there (dot repeats the cw).
+import { formatMoney } from "./format";
+const VAT_RATE = 0.2;
+export function receiptLine(item: CartItem): string {
+  const gross = item.net * (1 + VAT_RATE);
+  return item.label + ": " + formatMoney(gross);
+}
+-- ma
+-- 4j
+-- 'a
+-- 2wcwformatPrice<Esc>
+-- ''
+-- ff.
+== On the banner line put the cursor on the ) and set mark b (mb). Two lines
+== up, yank renewsOn with yiw. `b returns to the exact spot: P puts it there.
+const renewsOn = toLocalDate(plan.renewalDate);
+const seatsLeft = plan.seats - plan.usedSeats;
+const banner = formatBanner(plan.name, seatsLeft, );
+-- 2jf)
+-- mb
+-- 2k0wyiw
+-- `b
+-- P
+== Remove the old rounding. Set mark a on the comment line (ma), move down to
+== the closing } of the if, then d'a deletes back through the marked line.
+export function priceFor(item: Item): number {
+  // old rounding, kept for the 2023 price lists
+  if (item.legacyRounding) {
+    return Math.floor(item.cents / 100);
+  }
+  return item.cents / 100;
+}
+-- j
+-- ma
+-- 3j
+-- d'a
+== Copy the three rates into fallbackRates. ma on the standard line, 2j to
+== the zero line, y'a yanks all three. Then p on the fallbackRates line.
+const defaultRates = {
+  standard: 0.21,
+  reduced: 0.09,
+  zero: 0,
+};
+const fallbackRates = {
+};
+-- j
+-- ma
+-- 2j
+-- y'a
+-- 4jp

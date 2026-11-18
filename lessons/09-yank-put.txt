@@ -1,0 +1,44 @@
+title: Copy and paste: y p P
+keys: yy  y{motion}  p  P
+require: yy :: yy
+require: y\d*[we] :: yw or ye
+require: p :: p
+require: P :: P
+ext: ts
+
+Copy and paste are called yank and put:
+
+  yy   yank (copy) the line         ye   yank to the end of the word
+  p    put after the cursor         P    put before the cursor
+
+y is an operator like d and c, so it takes any motion. A yanked line is put
+below (p) or above (P) the current line. Deleting also yanks:
+dd then p moves a line, and x then p swaps two letters.
+
+== Duplicate the route line (yy, then p). In the copy, change home to about
+== and Home to About.
+const routes = [
+  { path: "/home", component: Home },
+];
+-- j
+-- yyp
+-- f/l
+-- cwabout<Esc>
+-- fH
+-- cwAbout<Esc>
+== Move the first line below the second: dd, then p.
+const b = 2;
+const a = 1;
+const c = 3;
+-- ddp
+== "lenght" has two letters swapped. Cursor on the h, then xp.
+const lenght = items.length;
+-- fh
+-- xp
+== Yank the word "user" with ye. On line 2, put it before the ; with P.
+const user = await loadUser();
+return ;
+-- w
+-- ye
+-- j$
+-- P

@@ -1,0 +1,88 @@
+title: Paragraphs: { } ip ap
+keys: {  }  ip  ap  dap  yap  vip  >ip  cip
+require: dap :: dap
+require: yap :: yap
+require: vip :: vip
+require: >ip :: >ip
+require: cip :: cip
+ext: ts
+
+A paragraph is a run of lines with no blank line in it: an import group, a
+step inside a function, a test case.
+
+  }    jump to the next blank line      {    jump back to the previous one
+  ip   the paragraph's lines            ap   the lines plus the blank line
+
+ip and ap are text objects like iw and aw: every operator takes them, with
+the cursor anywhere in the paragraph.
+
+  dap  delete it and its gap            yap  copy it; } then p puts the copy
+  >ip  indent it                        cip  replace its lines with new text
+  vip  select it, to see what an operator would act on
+
+== From line {L} press } twice to land under the second import group. O there
+== and add  import { roundCents } from "./money";  Then { j: dd the legacy line.
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
+
+import { legacyTotals } from "./legacy";
+import { parseInvoice } from "./invoice";
+import { sendReceipt } from "./mailer";
+
+const OUTPUT_DIR = join(process.cwd(), "out");
+-- }}
+-- Oimport { roundCents } from "./money";<Esc>
+-- {jdd
+== Delete the two debug routes together with the blank line under them:
+== cursor on either route, then dap.
+const app = express();
+app.use(json());
+
+app.get("/debug/dump", dumpState);
+app.get("/debug/crash", crashNow);
+
+app.get("/health", health);
+app.listen(PORT);
+-- }j
+-- dap
+== The wizard has two Next screens. Copy the "#next" step with yap, then
+== press } to reach the blank line under it and p to put the copy there.
+await page.goto("/wizard");
+
+await page.click("#next");
+await page.waitForLoadState();
+
+await page.click("#finish");
+-- }j
+-- yap
+-- }p
+== Indent the "const valid" paragraph with >ip. Indent the "await ledger"
+== paragraph the visual way: vip to select it, then >.
+export async function settle(batch: Payment[]) {
+  const ledger = await openLedger();
+
+const valid = batch.filter(isValid);
+const total = sum(valid);
+
+await ledger.post(valid, total);
+await ledger.close();
+
+  return total;
+}
+-- }j
+-- >ip
+-- }j
+-- vip>
+== Replace the three TODO lines with one line of code: cursor on any of them,
+== cip (the indent stays), then type  const settings = parseSettings(raw);
+export function loadSettings(): Settings {
+  const raw = readFileSync(SETTINGS_PATH, "utf8");
+
+  // TODO parse the file
+  // TODO check the required fields
+  // TODO fall back to the defaults
+
+  return settings;
+}
+-- }j
+-- cipconst settings = parseSettings(raw);<Esc>

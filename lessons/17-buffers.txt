@@ -1,0 +1,72 @@
+title: Files and buffers: :e :ls :b Ctrl-^
+keys: :e  :ls  :b  :bn  :bp  Ctrl-^  :wa
+require: :e\s :: :e
+require: :b\s?\S :: :b
+require: <C-\^> :: Ctrl-^
+require: :ls<CR> :: :ls
+ext: ts
+
+Each open file is a buffer. Vim keeps many open; a window shows one of them.
+
+  :e user-service.ts   open (edit) a file; Tab completes the name
+  :ls                  list the open buffers
+  :b name              switch by number or by part of the name
+  :bn  :bp             next / previous buffer
+  Ctrl-^               back to the buffer you were just in (Ctrl-6)
+  :w                   save this buffer         :wa   save all of them
+
+Vim will not leave a buffer with unsaved changes (error E37): :w first.
+Finish today with :wqa, which saves every buffer and quits.
+
+== Open user-service.ts with :e (try ":e us" then Tab). Change timeout to 60.
+@ file: user-service.ts
+export const userService = {
+  baseUrl: "/api/users",
+  timeout: 30,
+};
+-- :e user-service.ts<CR>
+-- /30<CR>
+-- cw60<Esc>
+== Open order-service.ts, then order-types.ts. Yank the type's name (yiw),
+== jump back with Ctrl-^ and put it between the braces of the import.
+@ file: order-service.ts
+import {  } from "./order-types";
+
+export function summarize(order: unknown) {
+  return order;
+}
+@ file: order-types.ts
+export type OrderSummary = {
+  id: string;
+  total: number;
+};
+-- :e order-service.ts<CR>
+-- :e order-types.ts<CR>
+-- ww
+-- yiw
+-- <C-^>
+-- f{l
+-- p
+== Rename applyDiscount to applyCoupon: once in discount.ts, twice in
+== checkout.ts. :w before each switch, :ls to look, ":b disc" to go back.
+@ file: discount.ts
+export function applyDiscount(total: number, code: string) {
+  return code === "SAVE10" ? total * 0.9 : total;
+}
+@ file: checkout.ts
+import { applyDiscount } from "./discount";
+
+export function checkout(total: number, code: string) {
+  return applyDiscount(total, code);
+}
+-- :e discount.ts<CR>
+-- /applyDiscount<CR>
+-- cwapplyCoupon<Esc>
+-- :w<CR>
+-- :e checkout.ts<CR>
+-- /applyDiscount<CR>
+-- cwapplyCoupon<Esc>
+-- n.
+-- :w<CR>
+-- :ls<CR>
+-- :b disc<CR>

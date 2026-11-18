@@ -1,0 +1,33 @@
+title: Modes: Normal, Insert, save and quit
+keys: i  Esc  :w  :q  :wq  :q!
+require: i.*<Esc> :: i ... Esc
+require: :wqa?<CR>|:x<CR>|ZZ :: :wq
+arrows: yes
+ext: ts
+
+Vim has modes. You start in NORMAL mode, where keys are commands, not text.
+
+  i      INSERT mode: what you type is inserted in front of the cursor
+  Esc    back to NORMAL mode (when in doubt, press Esc)
+  :w     save          :q   quit          :wq  save and quit
+  :q!    quit and throw away your changes
+
+Commands that start with ":" appear on the bottom line; Enter runs them.
+Today only, the arrow keys move the cursor. Tomorrow you switch to h j k l.
+
+== Press i, type "export " (with the space), press Esc.
+function greet(name: string) {
+  return `Hello, ${name}`;
+}
+-- iexport <Esc>
+== Move to the start of the TODO line and insert "// " in front of it.
+const retries = 3;
+TODO remove retries once the client handles it
+const timeout = 500;
+-- ji// <Esc>
+== Move onto the w of "world" and insert "big " there.
+const message = "Hello world";
+-- fwibig <Esc>
+== Move onto the ; and insert "false" in front of it.
+const debug = ;
+-- $ifalse<Esc>

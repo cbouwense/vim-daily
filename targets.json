@@ -1,0 +1,1821 @@
+{
+ "01.1": {
+  "hash": "d5ed0f687a3d",
+  "keys": 9,
+  "main": [
+   "export function greet(name: string) {",
+   "  return `Hello, ${name}`;",
+   "}"
+  ],
+  "files": {}
+ },
+ "01.2": {
+  "hash": "647578e6a4a2",
+  "keys": 6,
+  "main": [
+   "const retries = 3;",
+   "// TODO remove retries once the client handles it",
+   "const timeout = 500;"
+  ],
+  "files": {}
+ },
+ "01.3": {
+  "hash": "c9371d2e1b69",
+  "keys": 8,
+  "main": [
+   "const message = \"Hello big world\";"
+  ],
+  "files": {}
+ },
+ "01.4": {
+  "hash": "59248658faee",
+  "keys": 8,
+  "main": [
+   "const debug = false;"
+  ],
+  "files": {}
+ },
+ "02.1": {
+  "hash": "eceebd9830ab",
+  "keys": 12,
+  "main": [
+   "let a = 1;",
+   "let b = 2;",
+   "let c = 3;"
+  ],
+  "files": {}
+ },
+ "02.2": {
+  "hash": "def22f389c73",
+  "keys": 23,
+  "main": [
+   "id: 1,",
+   "name: \"Ada\",",
+   "active: true,"
+  ],
+  "files": {}
+ },
+ "02.3": {
+  "hash": "33c5e618071e",
+  "keys": 22,
+  "main": [
+   "const grid = [",
+   "  [1, 2, 3],",
+   "  [4, 5, 6],",
+   "  [7, 8, 9],",
+   "];"
+  ],
+  "files": {}
+ },
+ "03.1": {
+  "hash": "cdfe40ba2be3",
+  "keys": 8,
+  "main": [
+   "const total = price * quantity;"
+  ],
+  "files": {}
+ },
+ "03.2": {
+  "hash": "261c1e6bb5b6",
+  "keys": 7,
+  "main": [
+   "const userId = getUser();"
+  ],
+  "files": {}
+ },
+ "03.3": {
+  "hash": "a828d500432a",
+  "keys": 30,
+  "main": [
+   "function send(to, message, retries, timeout, delay) {"
+  ],
+  "files": {}
+ },
+ "03.4": {
+  "hash": "754ca505f224",
+  "keys": 10,
+  "main": [
+   "user.profile.settings.theme.color = \"very-dark\";"
+  ],
+  "files": {}
+ },
+ "04.1": {
+  "hash": "14a2ab5cb6d9",
+  "keys": 10,
+  "main": [
+   "\"use strict\";",
+   "const mode = \"production\";"
+  ],
+  "files": {}
+ },
+ "04.2": {
+  "hash": "8cbeaa841a23",
+  "keys": 7,
+  "main": [
+   "function load() {",
+   "    // console.log(\"debug\");",
+   "    return cache;",
+   "}"
+  ],
+  "files": {}
+ },
+ "04.3": {
+  "hash": "81d8466a3da7",
+  "keys": 11,
+  "main": [
+   "const flags = {",
+   "    verbose: true,",
+   "//    legacy: true,",
+   "};"
+  ],
+  "files": {}
+ },
+ "04.4": {
+  "hash": "f4556f7b4076",
+  "keys": 7,
+  "main": [
+   "const steps = [",
+   "  \"install\",",
+   "  \"build\",",
+   "  \"deploy\",",
+   "];"
+  ],
+  "files": {}
+ },
+ "04.5": {
+  "hash": "da354941a36e",
+  "keys": 10,
+  "main": [
+   "const routes = [];",
+   "export default routes;"
+  ],
+  "files": {}
+ },
+ "05.1": {
+  "hash": "d8ccbba10ede",
+  "keys": 8,
+  "main": [
+   "const a = 1;",
+   "const b = 2;",
+   "const c = 3;"
+  ],
+  "files": {}
+ },
+ "05.2": {
+  "hash": "a67faf23da1c",
+  "keys": 23,
+  "main": [
+   "    readonly name: string;",
+   "    readonly age: number;"
+  ],
+  "files": {}
+ },
+ "05.3": {
+  "hash": "7299d84dff33",
+  "keys": 26,
+  "main": [
+   "import { a } from \"./a\";",
+   "import { b } from \"./b\";",
+   "import { c } from \"./c\";"
+  ],
+  "files": {}
+ },
+ "05.4": {
+  "hash": "349df8fbd010",
+  "keys": 18,
+  "main": [
+   "function save(user: User) {",
+   "  validate(user);",
+   "  db.write(user);",
+   "}"
+  ],
+  "files": {}
+ },
+ "05.5": {
+  "hash": "a39492419a67",
+  "keys": 6,
+  "main": [
+   "const userId = session.user;"
+  ],
+  "files": {}
+ },
+ "06.1": {
+  "hash": "dee52212898a",
+  "keys": 6,
+  "main": [
+   "const total = price * 2;"
+  ],
+  "files": {}
+ },
+ "06.2": {
+  "hash": "3eb6e49562ff",
+  "keys": 6,
+  "main": [
+   "const a = 1;",
+   "const b = 2;"
+  ],
+  "files": {}
+ },
+ "06.3": {
+  "hash": "1121c91d107d",
+  "keys": 8,
+  "main": [
+   "const keep = true;"
+  ],
+  "files": {}
+ },
+ "07.1": {
+  "hash": "2b8bcc72f98b",
+  "keys": 3,
+  "main": [
+   "const cache = new Map<string, User>();"
+  ],
+  "files": {}
+ },
+ "07.2": {
+  "hash": "596a94fedc86",
+  "keys": 4,
+  "main": [
+   "return fetch(url);"
+  ],
+  "files": {}
+ },
+ "07.3": {
+  "hash": "2e4c28b03b47",
+  "keys": 4,
+  "main": [
+   "const price = 100;"
+  ],
+  "files": {}
+ },
+ "07.4": {
+  "hash": "22bff17e5a97",
+  "keys": 10,
+  "main": [
+   "const count = 0;"
+  ],
+  "files": {}
+ },
+ "08.1": {
+  "hash": "78467c7df711",
+  "keys": 9,
+  "main": [
+   "let total = computeTotal(items);"
+  ],
+  "files": {}
+ },
+ "08.2": {
+  "hash": "3710363d7e18",
+  "keys": 19,
+  "main": [
+   "const greeting = \"Hello, world\";"
+  ],
+  "files": {}
+ },
+ "08.3": {
+  "hash": "ae39f9762a18",
+  "keys": 19,
+  "main": [
+   "function init() {",
+   "  return setup();",
+   "}"
+  ],
+  "files": {}
+ },
+ "08.4": {
+  "hash": "a45422fd1c64",
+  "keys": 13,
+  "main": [
+   "const value = 1;"
+  ],
+  "files": {}
+ },
+ "09.1": {
+  "hash": "7b52c8de3726",
+  "keys": 25,
+  "main": [
+   "const routes = [",
+   "  { path: \"/home\", component: Home },",
+   "  { path: \"/about\", component: About },",
+   "];"
+  ],
+  "files": {}
+ },
+ "09.2": {
+  "hash": "1c6fdaf59147",
+  "keys": 3,
+  "main": [
+   "const a = 1;",
+   "const b = 2;",
+   "const c = 3;"
+  ],
+  "files": {}
+ },
+ "09.3": {
+  "hash": "8e402bba4990",
+  "keys": 4,
+  "main": [
+   "const length = items.length;"
+  ],
+  "files": {}
+ },
+ "09.4": {
+  "hash": "4379c86a4554",
+  "keys": 6,
+  "main": [
+   "const user = await loadUser();",
+   "return user;"
+  ],
+  "files": {}
+ },
+ "10.1": {
+  "hash": "b31e8dc43843",
+  "keys": 9,
+  "main": [
+   "const a = 1;",
+   "const b = 2;",
+   "const c = 3;",
+   "const d = 4;"
+  ],
+  "files": {}
+ },
+ "10.2": {
+  "hash": "389fc45c4f61",
+  "keys": 14,
+  "main": [
+   "const total = 0;",
+   "const count = 0;",
+   "const index = 0;"
+  ],
+  "files": {}
+ },
+ "10.3": {
+  "hash": "ae43353f5fe7",
+  "keys": 3,
+  "main": [
+   "export default app;"
+  ],
+  "files": {}
+ },
+ "10.4": {
+  "hash": "076fdef8bb8f",
+  "keys": 13,
+  "main": [
+   "  public name: string;",
+   "  public email: string;",
+   "  public role: Role;"
+  ],
+  "files": {}
+ },
+ "11.1": {
+  "hash": "b82c919023d8",
+  "keys": 9,
+  "main": [
+   "export const REQUEST_TIMEOUT = 5000;"
+  ],
+  "files": {}
+ },
+ "11.2": {
+  "hash": "216b8d46e30e",
+  "keys": 5,
+  "main": [
+   "export const API_VERSION = \"v2.4.1\";"
+  ],
+  "files": {}
+ },
+ "11.3": {
+  "hash": "2dc7fea0a065",
+  "keys": 5,
+  "main": [
+   "const palette = {",
+   "  primary: \"#1d4ed8\",",
+   "  danger: \"#b91c1c\",",
+   "  warning: \"#b45309\",",
+   "  success: \"#15803d\",",
+   "};"
+  ],
+  "files": {}
+ },
+ "11.4": {
+  "hash": "c3333b8a8f36",
+  "keys": 3,
+  "main": [
+   "function formatRows(rows: Row[]) {",
+   "  return rows.map(formatRow);",
+   "}"
+  ],
+  "files": {}
+ },
+ "11.5": {
+  "hash": "ef294b77a4d6",
+  "keys": 7,
+  "main": [
+   "function syncInventory(items: Item[]) {",
+   "  const changed = items.filter(hasChanged);",
+   "  upload(changed);",
+   "  return changed.length;",
+   "}"
+  ],
+  "files": {}
+ },
+ "12.1": {
+  "hash": "c97a2df50d99",
+  "keys": 7,
+  "main": [
+   "for (int i = 0; i < rows.size(); i++) {",
+   "  exporter.write(rows.get(i));",
+   "}"
+  ],
+  "files": {}
+ },
+ "12.2": {
+  "hash": "4aca0b2ee51f",
+  "keys": 5,
+  "main": [
+   "logger.warn(\"retrying\");"
+  ],
+  "files": {}
+ },
+ "12.3": {
+  "hash": "9a0b6d8364ea",
+  "keys": 19,
+  "main": [
+   "double total = price * taxMultiplier * quantity;"
+  ],
+  "files": {}
+ },
+ "12.4": {
+  "hash": "3e08689a6d64",
+  "keys": 17,
+  "main": [
+   "String path = baseDir + \"/reports/\" + year + \"/totals.csv\";"
+  ],
+  "files": {}
+ },
+ "13.1": {
+  "hash": "a15067c48fb6",
+  "keys": 30,
+  "main": [
+   "export const uploadLimits = {",
+   "  maxFiles: 10,",
+   "  maxSizeMb: 100,",
+   "  allowedTypes: [\"png\", \"jpg\", \"pdf\"],",
+   "  scanTimeoutMs: 8000,",
+   "  retainDays: 30,",
+   "};"
+  ],
+  "files": {}
+ },
+ "13.2": {
+  "hash": "25d0dabf9c31",
+  "keys": 15,
+  "main": [
+   "let sumMs = 0;",
+   "for (const ms of samples) {",
+   "  sumMs += ms;",
+   "}",
+   "report.averageMs = sumMs / samples.length;"
+  ],
+  "files": {}
+ },
+ "13.3": {
+  "hash": "373d28718ebb",
+  "keys": 15,
+  "main": [
+   "async function checkQuota(tenant: Tenant, usage: Usage) {",
+   "  const quotaLeft = tenant.plan.monthlyQuota - usage.total;",
+   "  if (quotaLeft <= 0) {",
+   "    await notifier.warn(tenant.owner);",
+   "  }",
+   "  return quotaLeft;",
+   "}"
+  ],
+  "files": {}
+ },
+ "13.4": {
+  "hash": "c187a0c28e9e",
+  "keys": 17,
+  "main": [
+   "if (acct.active && acct.plan === \"pro\") {",
+   "  enableExports(acct);",
+   "}"
+  ],
+  "files": {}
+ },
+ "14.1": {
+  "hash": "5b185c849cc4",
+  "keys": 19,
+  "main": [
+   "private final List<Order> settledOrders = new ArrayList<>();"
+  ],
+  "files": {}
+ },
+ "14.2": {
+  "hash": "8b7b6434f786",
+  "keys": 5,
+  "main": [
+   "public void resetCounters() {",
+   "  counters.clear();",
+   "}"
+  ],
+  "files": {}
+ },
+ "14.3": {
+  "hash": "04689d3c5fff",
+  "keys": 8,
+  "main": [
+   "public Shipment(String warehouseId) {",
+   "  this.warehouseId = warehouseId;",
+   "}"
+  ],
+  "files": {}
+ },
+ "14.4": {
+  "hash": "65f85cdba7d2",
+  "keys": 5,
+  "main": [
+   "session.close();"
+  ],
+  "files": {}
+ },
+ "15.1": {
+  "hash": "af4e7b938fac",
+  "keys": 20,
+  "main": [
+   "const endpoint = \"/api/v2/invoices\";"
+  ],
+  "files": {}
+ },
+ "15.2": {
+  "hash": "824e14d06103",
+  "keys": 5,
+  "main": [
+   "const report = buildReport();"
+  ],
+  "files": {}
+ },
+ "15.3": {
+  "hash": "dd5b6d18e24c",
+  "keys": 41,
+  "main": [
+   "function isExpired(token: Token): boolean {",
+   "  return Date.now() > token.expiresAt;",
+   "}"
+  ],
+  "files": {}
+ },
+ "15.4": {
+  "hash": "bc1fe3336d37",
+  "keys": 9,
+  "main": [
+   "const adminRoles = [\"owner\", \"admin\", \"billing\"];",
+   "const auditRoles = [\"owner\", \"admin\", \"billing\"];"
+  ],
+  "files": {}
+ },
+ "15.5": {
+  "hash": "f060e2c07450",
+  "keys": 34,
+  "main": [
+   "const emptyState = `<p class=\"hint\">Nothing matches your filters</p>`;"
+  ],
+  "files": {}
+ },
+ "16.1": {
+  "hash": "fb247c5d2d5b",
+  "keys": 7,
+  "main": [
+   "const name = user.first + \" \" + user.last;"
+  ],
+  "files": {}
+ },
+ "16.2": {
+  "hash": "7e7f2b6e83e6",
+  "keys": 8,
+  "main": [
+   "async function submit(form: SignupForm) {",
+   "  if (!form.acceptedTerms) {",
+   "    throw new Error(\"terms not accepted\");",
+   "  }",
+   "  await api.createAccount(form);",
+   "  track(\"signup\");",
+   "}"
+  ],
+  "files": {}
+ },
+ "16.3": {
+  "hash": "7f6d149ea624",
+  "keys": 27,
+  "main": [
+   "const delayMs = backoff(retryCount) + jitter;"
+  ],
+  "files": {}
+ },
+ "16.4": {
+  "hash": "e8f69fa409b0",
+  "keys": 12,
+  "main": [
+   "const orderConfirmationTemplate = loadTemplate(\"order-confirmation\");",
+   "mailer.send(customer.email, orderConfirmationTemplate);"
+  ],
+  "files": {}
+ },
+ "17.1": {
+  "hash": "87e8a80b119b",
+  "keys": 28,
+  "main": null,
+  "files": {
+   "user-service.ts": [
+    "export const userService = {",
+    "  baseUrl: \"/api/users\",",
+    "  timeout: 60,",
+    "};"
+   ]
+  }
+ },
+ "17.2": {
+  "hash": "6c0488e89e37",
+  "keys": 48,
+  "main": null,
+  "files": {
+   "order-service.ts": [
+    "import { OrderSummary } from \"./order-types\";",
+    "",
+    "export function summarize(order: unknown) {",
+    "  return order;",
+    "}"
+   ],
+   "order-types.ts": [
+    "export type OrderSummary = {",
+    "  id: string;",
+    "  total: number;",
+    "};"
+   ]
+  }
+ },
+ "17.3": {
+  "hash": "c3bc4143d048",
+  "keys": 108,
+  "main": null,
+  "files": {
+   "discount.ts": [
+    "export function applyCoupon(total: number, code: string) {",
+    "  return code === \"SAVE10\" ? total * 0.9 : total;",
+    "}"
+   ],
+   "checkout.ts": [
+    "import { applyCoupon } from \"./discount\";",
+    "",
+    "export function checkout(total: number, code: string) {",
+    "  return applyCoupon(total, code);",
+    "}"
+   ]
+  }
+ },
+ "18.1": {
+  "hash": "306d7f4521da",
+  "keys": 27,
+  "main": null,
+  "files": {
+   "payment-gateway.ts": [
+    "export const paymentGateway = {",
+    "  endpoint: \"https://pay.example.com/charge\",",
+    "  retries: 5,",
+    "};"
+   ]
+  }
+ },
+ "18.2": {
+  "hash": "b75cd36ccfbb",
+  "keys": 37,
+  "main": null,
+  "files": {
+   "inventory-sync.ts": [
+    "export const inventorySync = {",
+    "  schedule: \"daily\",",
+    "  batchSize: 200,",
+    "};"
+   ]
+  }
+ },
+ "18.3": {
+  "hash": "115709048c95",
+  "keys": 30,
+  "main": null,
+  "files": {
+   "shipping-rates.ts": [
+    "export function shippingRate(weightKg: number) {",
+    "  if (weightKg > 20) return 25;",
+    "  return 8;",
+    "}"
+   ]
+  }
+ },
+ "19.1": {
+  "hash": "b13cd5bcc64d",
+  "keys": 74,
+  "main": null,
+  "files": {
+   "api-client.ts": [
+    "import { ApiOptions } from \"./api-types\";",
+    "",
+    "export function createClient(options: ApiOptions) {",
+    "  return { baseUrl: options.baseUrl, timeoutMs: options.timeoutMs };",
+    "}"
+   ],
+   "api-types.ts": [
+    "export type ApiOptions = {",
+    "  baseUrl: string;",
+    "  timeoutMs: number;",
+    "};"
+   ]
+  }
+ },
+ "19.2": {
+  "hash": "5d9c8ec34152",
+  "keys": 53,
+  "main": null,
+  "files": {
+   "settings-form.ts": [
+    "export const MAX_LENGTH = 40;",
+    "",
+    "export type Field = {",
+    "  name: string;",
+    "  label: string;",
+    "  value: string;",
+    "  required: boolean;",
+    "};",
+    "",
+    "export function emptyField(name: string, label: string): Field {",
+    "  return { name, label, value: \"\", required: false };",
+    "}",
+    "",
+    "export function isFilled(field: Field) {",
+    "  return field.value.trim().length > 0;",
+    "}",
+    "",
+    "export function missing(fields: Field[]) {",
+    "  return fields.filter((f) => f.required && !isFilled(f));",
+    "}",
+    "",
+    "export function labelFor(field: Field) {",
+    "  return field.required ? field.label + \" *\" : field.label;",
+    "}",
+    "",
+    "export function tooLong(field: Field) {",
+    "  return field.value.length > MAX_LENGTH;",
+    "}"
+   ]
+  }
+ },
+ "19.3": {
+  "hash": "f33114f70cc5",
+  "keys": 57,
+  "main": null,
+  "files": {
+   "feature-flags.ts": [
+    "export const flags = {",
+    "  newCheckout: true,",
+    "  darkMode: false,",
+    "};"
+   ],
+   "feature-flags.test.ts": [
+    "import { flags } from \"./feature-flags\";",
+    "",
+    "const expected = {",
+    "  newCheckout: true,",
+    "  darkMode: false,",
+    "};"
+   ]
+  }
+ },
+ "20.1": {
+  "hash": "85146ba7444d",
+  "keys": 24,
+  "main": [
+   "export const appConfig = {",
+   "  server: {",
+   "    host: \"0.0.0.0\",",
+   "    port: 8080,",
+   "    requestTimeoutMs: 15000,",
+   "    maxBodySizeKb: 512,",
+   "    trustProxy: true,",
+   "  },",
+   "  database: {",
+   "    host: \"db.internal\",",
+   "    port: 5432,",
+   "    name: \"storefront\",",
+   "    poolMin: 2,",
+   "    poolMax: 40,",
+   "    idleTimeoutMs: 30000,",
+   "    statementTimeoutMs: 8000,",
+   "  },",
+   "  cache: {",
+   "    host: \"cache.internal\",",
+   "    port: 6379,",
+   "    keyPrefix: \"sf:\",",
+   "    defaultTtlSeconds: 300,",
+   "  },",
+   "  mail: {",
+   "    sender: \"no-reply@storefront.test\",",
+   "    smtpHost: \"smtp.internal\",",
+   "    smtpPort: 587,",
+   "    retryAttempts: 3,",
+   "  },",
+   "  uploads: {",
+   "    directory: \"/var/storefront/uploads\",",
+   "    maxFileSizeMb: 25,",
+   "    allowedExtensions: [\"png\", \"jpg\", \"pdf\"],",
+   "    virusScan: true,",
+   "  },",
+   "  session: {",
+   "    cookieName: \"sf_session\",",
+   "    ttlMinutes: 45,",
+   "    rolling: true,",
+   "    sameSite: \"lax\",",
+   "  },",
+   "  features: {",
+   "    giftCards: false,",
+   "    guestCheckout: true,",
+   "    productReviews: true,",
+   "    wishlist: false,",
+   "  },",
+   "};"
+  ],
+  "files": {}
+ },
+ "20.2": {
+  "hash": "794a30f2f1e2",
+  "keys": 24,
+  "main": [
+   "export const routes: Route[] = [",
+   "  { method: \"GET\", path: \"/health\", handler: health.check },",
+   "  { method: \"GET\", path: \"/products\", handler: products.list },",
+   "  { method: \"GET\", path: \"/products/:id\", handler: products.show },",
+   "  { method: \"POST\", path: \"/products\", handler: products.create },",
+   "  { method: \"PUT\", path: \"/products/:id\", handler: products.update },",
+   "  { method: \"DELETE\", path: \"/products/:id\", handler: products.remove },",
+   "  { method: \"GET\", path: \"/categories\", handler: categories.list },",
+   "  { method: \"GET\", path: \"/categories/:id\", handler: categories.show },",
+   "  { method: \"POST\", path: \"/categories\", handler: categories.create },",
+   "  { method: \"GET\", path: \"/cart\", handler: cart.show },",
+   "  { method: \"POST\", path: \"/cart/items\", handler: cart.addItem },",
+   "  { method: \"PUT\", path: \"/cart/items/:id\", handler: cart.updateItem },",
+   "  { method: \"DELETE\", path: \"/cart/items/:id\", handler: cart.removeItem },",
+   "  { method: \"POST\", path: \"/cart/coupon\", handler: cart.applyCoupon },",
+   "  { method: \"POST\", path: \"/checkout\", handler: checkout.start },",
+   "  { method: \"POST\", path: \"/checkout/confirm\", handler: checkout.confirm },",
+   "  { method: \"GET\", path: \"/orders\", handler: orders.list },",
+   "  { method: \"GET\", path: \"/orders/:id\", handler: orders.show },",
+   "  { method: \"POST\", path: \"/orders/:id/cancel\", handler: orders.cancel },",
+   "  { method: \"GET\", path: \"/orders/:id/invoice\", handler: orders.invoice },",
+   "  { method: \"GET\", path: \"/customers\", handler: customers.list },",
+   "  { method: \"GET\", path: \"/customers/:id\", handler: customers.show },",
+   "  { method: \"PUT\", path: \"/customers/:id\", handler: customers.update },",
+   "  { method: \"GET\", path: \"/customers/:id/orders\", handler: customers.orders },",
+   "  { method: \"GET\", path: \"/addresses\", handler: addresses.list },",
+   "  { method: \"POST\", path: \"/addresses\", handler: addresses.create },",
+   "  { method: \"PUT\", path: \"/addresses/:id\", handler: addresses.update },",
+   "  { method: \"DELETE\", path: \"/addresses/:id\", handler: addresses.remove },",
+   "  { method: \"GET\", path: \"/wishlist\", handler: wishlist.show },",
+   "  { method: \"POST\", path: \"/wishlist/items\", handler: wishlist.add },",
+   "  { method: \"DELETE\", path: \"/wishlist/items/:id\", handler: wishlist.remove },",
+   "  { method: \"GET\", path: \"/reviews\", handler: reviews.list },",
+   "  { method: \"POST\", path: \"/reviews\", handler: reviews.create },",
+   "  { method: \"DELETE\", path: \"/reviews/:id\", handler: reviews.remove },",
+   "  { method: \"GET\", path: \"/shipping/rates\", handler: shipping.rates },",
+   "  { method: \"GET\", path: \"/shipping/track/:code\", handler: shipping.track },",
+   "  { method: \"GET\", path: \"/payments/methods\", handler: payments.methods },",
+   "  { method: \"POST\", path: \"/payments/intent\", handler: payments.intent },",
+   "  { method: \"POST\", path: \"/payments/webhook\", handler: payments.webhook },",
+   "  { method: \"POST\", path: \"/refunds\", handler: refunds.create },",
+   "  { method: \"GET\", path: \"/refunds/:id\", handler: refunds.show },",
+   "  { method: \"GET\", path: \"/reports/sales\", handler: reports.sales },",
+   "  { method: \"GET\", path: \"/reports/stock\", handler: reports.stock },",
+   "  { method: \"POST\", path: \"/admin/reindex\", handler: admin.reindex },",
+   "];"
+  ],
+  "files": {}
+ },
+ "20.3": {
+  "hash": "ee7276c9743a",
+  "keys": 34,
+  "main": [
+   "export const messages = {",
+   "  appName: \"Corner Shop\",",
+   "  navHome: \"Home\",",
+   "  navCatalog: \"Catalog\",",
+   "  navCart: \"Cart\",",
+   "  navAccount: \"My account\",",
+   "  greeting: \"Welcome back\",",
+   "  searchPlaceholder: \"Search products\",",
+   "  searchEmpty: \"No products found\",",
+   "  filterPrice: \"Price\",",
+   "  filterBrand: \"Brand\",",
+   "  filterInStock: \"In stock only\",",
+   "  sortNewest: \"Newest first\",",
+   "  sortCheapest: \"Lowest price first\",",
+   "  productAdd: \"Add to cart\",",
+   "  productSoldOut: \"Sold out\",",
+   "  productReviews: \"Customer reviews\",",
+   "  cartTitle: \"Your cart\",",
+   "  cartEmpty: \"Your cart is empty\",",
+   "  cartSubtotal: \"Subtotal\",",
+   "  cartShipping: \"Shipping\",",
+   "  cartTotal: \"Total\",",
+   "  cartCheckout: \"Go to checkout\",",
+   "  checkoutAddress: \"Delivery address\",",
+   "  checkoutPayment: \"Payment method\",",
+   "  checkoutConfirm: \"Place order\",",
+   "  orderThanks: \"Thank you for your order\",",
+   "  orderNumber: \"Order number\",",
+   "  orderTrack: \"Track your parcel\",",
+   "  accountProfile: \"Profile\",",
+   "  accountOrders: \"Order history\",",
+   "  accountSaved: \"Saved\",",
+   "  accountSignOut: \"Sign out\",",
+   "  errorNetwork: \"Check your connection and try again\",",
+   "  errorNotFound: \"This page does not exist\",",
+   "  errorServer: \"Something went wrong on our side\",",
+   "  footerTerms: \"Terms of service\",",
+   "  footerPrivacy: \"Privacy policy\",",
+   "  footerContact: \"Contact us\",",
+   "};"
+  ],
+  "files": {}
+ },
+ "21.1": {
+  "hash": "e8dd6eed8dda",
+  "keys": 8,
+  "main": [
+   "const net = round(rows.reduce((sum, row) => sum + row.qty * row.price, 0), 2);"
+  ],
+  "files": {}
+ },
+ "21.2": {
+  "hash": "7a1fce14376a",
+  "keys": 5,
+  "main": [
+   "saveButton.onClick(submitOrder);"
+  ],
+  "files": {}
+ },
+ "21.3": {
+  "hash": "d7e72c236181",
+  "keys": 14,
+  "main": [
+   "const turbineRetryLimit = 5;",
+   "const turbineBackoffMs = 250;",
+   "function turbineDelay(attempt: number) {",
+   "  return attempt < turbineRetryLimit ? turbineBackoffMs * attempt : -1;",
+   "}"
+  ],
+  "files": {}
+ },
+ "21.4": {
+  "hash": "8030bad1ec7b",
+  "keys": 14,
+  "main": [
+   "const exportOptions = {",
+   "  format: \"csv\",",
+   "  columns: [\"id\", \"total\", \"paidAt\"],",
+   "  pageSize: 500,",
+   "};"
+  ],
+  "files": {}
+ },
+ "22.1": {
+  "hash": "88cba1a9d219",
+  "keys": 6,
+  "main": [
+   "void reserveSeat(Booking booking) {",
+   "  seatMap.lock(booking.seatId());",
+   "  booking.markReserved();",
+   "  audit.record(booking);",
+   "}"
+  ],
+  "files": {}
+ },
+ "22.2": {
+  "hash": "90d0a3092be4",
+  "keys": 8,
+  "main": [
+   "void closeMonth(Ledger ledger) {",
+   "  ledger.freeze();",
+   "  ledger.postAccruals();",
+   "  ledger.snapshot();",
+   "  if (ledger.isBalanced()) {",
+   "    archive.store(ledger);",
+   "    notifier.monthClosed(ledger);",
+   "  }",
+   "}"
+  ],
+  "files": {}
+ },
+ "22.3": {
+  "hash": "5ce9620bd130",
+  "keys": 7,
+  "main": [
+   "int shippingCost(Parcel parcel) {",
+   "  int cost = rates.lookup(parcel.zone());",
+   "  if (parcel.isFragile()) {",
+   "    cost += FRAGILE_FEE;",
+   "    cost += insurance.quote(parcel);",
+   "  }",
+   "  return cost;",
+   "}"
+  ],
+  "files": {}
+ },
+ "22.4": {
+  "hash": "5ff1f0160ba4",
+  "keys": 5,
+  "main": [
+   "List<String> activeEmails(List<Account> accounts) {",
+   "  List<String> emails = new ArrayList<>();",
+   "  for (Account account : accounts) {",
+   "    if (account.isActive()) {",
+   "      emails.add(account.email());",
+   "    }",
+   "  }",
+   "  return emails;",
+   "}"
+  ],
+  "files": {}
+ },
+ "23.1": {
+  "hash": "2143a19716e2",
+  "keys": 16,
+  "main": [
+   "const title = formatLabel(order.label, locale);"
+  ],
+  "files": {}
+ },
+ "23.2": {
+  "hash": "4fa7ca6583cb",
+  "keys": 15,
+  "main": [
+   "draft.items = dedupe(draft.items).concat(draft.pending);"
+  ],
+  "files": {}
+ },
+ "23.3": {
+  "hash": "632be3d4eb12",
+  "keys": 21,
+  "main": [
+   "function partyLines(buyer: Party, seller: Party) {",
+   "  const buyerLine = `${buyer.name} <${buyer.email}>`;",
+   "  const sellerLine = `${seller.name} <${seller.email}>`;",
+   "  const sellerCity = seller.address?.city ?? seller.region;",
+   "  const sellerPhone = seller.phone ?? seller.mobile;",
+   "  return { buyerLine, sellerLine, sellerCity, sellerPhone };",
+   "}"
+  ],
+  "files": {}
+ },
+ "23.4": {
+  "hash": "f13ad1245d95",
+  "keys": 25,
+  "main": [
+   "function attach(ownerId: string, file: Upload) {",
+   "  const record = { id: file.id, owner: ownerId };",
+   "  return store.put(ownerId, record);",
+   "}"
+  ],
+  "files": {}
+ },
+ "23.5": {
+  "hash": "d380c894203f",
+  "keys": 41,
+  "main": null,
+  "files": {
+   "invoice-totals.ts": [
+    "export type InvoiceLine = { sku: string; amount: number; vatRate: number };",
+    "",
+    "export function invoiceTotal(lines: InvoiceLine[]): number {",
+    "  let amount = 0;",
+    "  for (const line of lines) {",
+    "    amount += line.amount * (1 + line.vatRate);",
+    "  }",
+    "  return amount;",
+    "}"
+   ]
+  }
+ },
+ "24.1": {
+  "hash": "21b5c3a3a9d6",
+  "keys": 14,
+  "main": [
+   "  private String orderId;",
+   "  private String customerEmail;",
+   "  private BigDecimal total;",
+   "  private Instant placedAt;"
+  ],
+  "files": {}
+ },
+ "24.2": {
+  "hash": "f55d9e1c4deb",
+  "keys": 7,
+  "main": [
+   "long retries = policy.maxRetries();",
+   "Duration backoff = policy.initialBackoff();",
+   "boolean jitter = policy.usesJitter();"
+  ],
+  "files": {}
+ },
+ "24.3": {
+  "hash": "b7d9a29373e3",
+  "keys": 11,
+  "main": [
+   "static final int MAX_ROWS = 500;",
+   "static final int PAGE_SIZE = 50;",
+   "static final int TIMEOUT_SECONDS = 30;"
+  ],
+  "files": {}
+ },
+ "24.4": {
+  "hash": "ec79335e7995",
+  "keys": 6,
+  "main": [
+   "cache.evict(key);",
+   "cache.warm(key);",
+   "metrics.count(\"evict\");"
+  ],
+  "files": {}
+ },
+ "24.5": {
+  "hash": "2f34a6c3011c",
+  "keys": 7,
+  "main": [
+   "static final String ORDERS = \"/api/v2/orders\";",
+   "static final String PRICES = \"/api/v2/prices\";",
+   "static final String REFUND = \"/api/v2/refund\";"
+  ],
+  "files": {}
+ },
+ "25.1": {
+  "hash": "22dd661496d4",
+  "keys": 20,
+  "main": [
+   "export const adminMenu = [",
+   "  { label: \"Audit log\", path: \"/audit\" },",
+   "  { label: \"Billing\", path: \"/billing\" },",
+   "];",
+   "export const supportMenu = [",
+   "  { label: \"Audit log\", path: \"/audit\" },",
+   "];",
+   "export const financeMenu = [",
+   "  { label: \"Billing\", path: \"/billing\" },",
+   "];"
+  ],
+  "files": {}
+ },
+ "25.2": {
+  "hash": "87307e7793b5",
+  "keys": 18,
+  "main": [
+   "const DEFAULT_LOCALE = \"en-GB\";",
+   "const locale = settings.locale ?? DEFAULT_LOCALE;"
+  ],
+  "files": {}
+ },
+ "25.3": {
+  "hash": "5855f9238c57",
+  "keys": 17,
+  "main": [
+   "const fixtures = [",
+   "  userWith({ plan: \"free\" }),",
+   "  userWith({ plan: \"trial\", expired: true }),",
+   "  userWith({ plan: \"team\" }),",
+   "  userWith({ plan: \"team\", suspended: true }),",
+   "];",
+   "const blockedFixtures = [",
+   "  userWith({ plan: \"trial\", expired: true }),",
+   "  userWith({ plan: \"team\", suspended: true }),",
+   "];"
+  ],
+  "files": {}
+ },
+ "25.4": {
+  "hash": "b5591a63e9bd",
+  "keys": 22,
+  "main": [
+   "const tenantId = session.tenant.id;",
+   "audit.log(tenantId, \"export started\");",
+   "queue.push({ job: \"export\", tenant: tenantId });"
+  ],
+  "files": {}
+ },
+ "26.1": {
+  "hash": "3d41f06a24fe",
+  "keys": 32,
+  "main": [
+   "await cache.evict(\"pricing:eu\");",
+   "await cache.evict(\"pricing:us\");",
+   "await cache.evict(\"catalog:index\");"
+  ],
+  "files": {}
+ },
+ "26.2": {
+  "hash": "323f60a95124",
+  "keys": 22,
+  "main": [
+   "const statusLabel = {",
+   "  pending: \"pending\",",
+   "  shipped: \"shipped\",",
+   "  delivered: \"delivered\",",
+   "  refunded: \"refunded\",",
+   "};"
+  ],
+  "files": {}
+ },
+ "26.3": {
+  "hash": "33bd78eb1b4a",
+  "keys": 29,
+  "main": [
+   "tiers.set(\"gold\", 500);",
+   "tiers.set(\"silver\", 250);",
+   "tiers.set(\"platinum\", 1000);"
+  ],
+  "files": {}
+ },
+ "26.4": {
+  "hash": "b6e4d9f8a316",
+  "keys": 40,
+  "main": [
+   "it(\"parses dates\", async () => {",
+   "  await resetDb();",
+   "});",
+   "it(\"rejects empty input\", async () => {",
+   "  await resetDb();",
+   "});",
+   "it(\"trims whitespace\", async () => {",
+   "  await resetDb();",
+   "});"
+  ],
+  "files": {}
+ },
+ "27.1": {
+  "hash": "d60a3a9061ae",
+  "keys": 27,
+  "main": [
+   "import { formatPrice } from \"./format\";",
+   "const VAT_RATE = 0.2;",
+   "export function receiptLine(item: CartItem): string {",
+   "  const gross = item.net * (1 + VAT_RATE);",
+   "  return item.label + \": \" + formatPrice(gross);",
+   "}"
+  ],
+  "files": {}
+ },
+ "27.2": {
+  "hash": "a23d56912536",
+  "keys": 16,
+  "main": [
+   "const renewsOn = toLocalDate(plan.renewalDate);",
+   "const seatsLeft = plan.seats - plan.usedSeats;",
+   "const banner = formatBanner(plan.name, seatsLeft, renewsOn);"
+  ],
+  "files": {}
+ },
+ "27.3": {
+  "hash": "08238bebf9b2",
+  "keys": 8,
+  "main": [
+   "export function priceFor(item: Item): number {",
+   "  return item.cents / 100;",
+   "}"
+  ],
+  "files": {}
+ },
+ "27.4": {
+  "hash": "b00678e4f5e6",
+  "keys": 11,
+  "main": [
+   "const defaultRates = {",
+   "  standard: 0.21,",
+   "  reduced: 0.09,",
+   "  zero: 0,",
+   "};",
+   "const fallbackRates = {",
+   "  standard: 0.21,",
+   "  reduced: 0.09,",
+   "  zero: 0,",
+   "};"
+  ],
+  "files": {}
+ },
+ "28.1": {
+  "hash": "08113f28803d",
+  "keys": 45,
+  "main": [
+   "import { readFile } from \"node:fs/promises\";",
+   "import { join } from \"node:path\";",
+   "",
+   "import { parseInvoice } from \"./invoice\";",
+   "import { sendReceipt } from \"./mailer\";",
+   "import { roundCents } from \"./money\";",
+   "",
+   "const OUTPUT_DIR = join(process.cwd(), \"out\");"
+  ],
+  "files": {}
+ },
+ "28.2": {
+  "hash": "031cfb57a916",
+  "keys": 5,
+  "main": [
+   "const app = express();",
+   "app.use(json());",
+   "",
+   "app.get(\"/health\", health);",
+   "app.listen(PORT);"
+  ],
+  "files": {}
+ },
+ "28.3": {
+  "hash": "245d2c43d57c",
+  "keys": 7,
+  "main": [
+   "await page.goto(\"/wizard\");",
+   "",
+   "await page.click(\"#next\");",
+   "await page.waitForLoadState();",
+   "",
+   "await page.click(\"#next\");",
+   "await page.waitForLoadState();",
+   "",
+   "await page.click(\"#finish\");"
+  ],
+  "files": {}
+ },
+ "28.4": {
+  "hash": "64e8036455cb",
+  "keys": 11,
+  "main": [
+   "export async function settle(batch: Payment[]) {",
+   "  const ledger = await openLedger();",
+   "",
+   "  const valid = batch.filter(isValid);",
+   "  const total = sum(valid);",
+   "",
+   "  await ledger.post(valid, total);",
+   "  await ledger.close();",
+   "",
+   "  return total;",
+   "}"
+  ],
+  "files": {}
+ },
+ "28.5": {
+  "hash": "6bb8a28588ac",
+  "keys": 42,
+  "main": [
+   "export function loadSettings(): Settings {",
+   "  const raw = readFileSync(SETTINGS_PATH, \"utf8\");",
+   "",
+   "  const settings = parseSettings(raw);",
+   "",
+   "  return settings;",
+   "}"
+  ],
+  "files": {}
+ },
+ "29.1": {
+  "hash": "280c322c1533",
+  "keys": 4,
+  "main": [
+   "int total = add(subtotal, shipping);",
+   "if (user.isActive() && user.hasRole(\"admin\") && !user.isLocked()) {",
+   "  grantAccess(user);",
+   "}"
+  ],
+  "files": {}
+ },
+ "29.2": {
+  "hash": "16d7e3d6ad0b",
+  "keys": 5,
+  "main": [
+   "String price = item.getPrice();"
+  ],
+  "files": {}
+ },
+ "29.3": {
+  "hash": "3c53af12306f",
+  "keys": 14,
+  "main": [
+   "private static final int MAX_RETRIES = 5;",
+   "private String email;"
+  ],
+  "files": {}
+ },
+ "29.4": {
+  "hash": "b61196d01eba",
+  "keys": 8,
+  "main": [
+   "package com.acme.billing;",
+   "",
+   "public enum Tier {",
+   "  FREE, TEAM, ENTERPRISE",
+   "}"
+  ],
+  "files": {}
+ },
+ "29.5": {
+  "hash": "9f2825391ef6",
+  "keys": 7,
+  "main": [
+   "InvoiceService service = new InvoiceService();"
+  ],
+  "files": {}
+ },
+ "30.1": {
+  "hash": "709b95a5a45e",
+  "keys": 6,
+  "main": [
+   "public void importRows(List<Row> rows) {",
+   "  rows.forEach(this::save);",
+   "}"
+  ],
+  "files": {}
+ },
+ "30.2": {
+  "hash": "beb464f30dd3",
+  "keys": 7,
+  "main": [
+   "@NotBlank",
+   "@Size(max = 80)",
+   "private String firstName;",
+   "",
+   "@NotBlank",
+   "@Size(max = 80)",
+   "private String lastName;"
+  ],
+  "files": {}
+ },
+ "30.3": {
+  "hash": "d66a69304edd",
+  "keys": 5,
+  "main": [
+   "public Invoice build() {",
+   "  validate(lines);",
+   "  BigDecimal total = sum(lines);",
+   "  return new Invoice(customer, lines, total);",
+   "}"
+  ],
+  "files": {}
+ },
+ "30.4": {
+  "hash": "199cb6a6212a",
+  "keys": 9,
+  "main": [
+   "switch (status) {",
+   "  case PENDING:",
+   "    return \"Waiting\";",
+   "  default:",
+   "    return \"Unknown\";",
+   "}"
+  ],
+  "files": {}
+ },
+ "30.5": {
+  "hash": "44b7d3975376",
+  "keys": 8,
+  "main": [
+   "class ReportJob {",
+   "  private final Mailer mailer;",
+   "  private final Clock clock;",
+   "  void run() {",
+   "    render(load());",
+   "  }",
+   "}"
+  ],
+  "files": {}
+ },
+ "31.1": {
+  "hash": "dad2dd776d1a",
+  "keys": 51,
+  "main": null,
+  "files": {
+   "billing-job.ts": [
+    "export function runBilling() {",
+    "  logger(\"billing started\");",
+    "}"
+   ],
+   "cleanup-job.ts": [
+    "export function runCleanup() {",
+    "  logger(\"cleanup started\");",
+    "}"
+   ],
+   "export-job.ts": [
+    "export function runExport() {",
+    "  logger(\"export started\");",
+    "}"
+   ]
+  }
+ },
+ "31.2": {
+  "hash": "88be3ba86439",
+  "keys": 60,
+  "main": null,
+  "files": {
+   "user-list.ts": [
+    "import { loadUser } from \"./users\";",
+    "",
+    "export const list = (ids: string[]) => ids.map((id) => loadUser(id));"
+   ],
+   "user-card.ts": [
+    "import { loadUser } from \"./users\";",
+    "",
+    "export const card = (id: string) => render(loadUser(id));"
+   ],
+   "user-menu.ts": [
+    "import { loadUser } from \"./users\";",
+    "",
+    "export const menu = (id: string) => items(loadUser(id));"
+   ]
+  }
+ },
+ "31.3": {
+  "hash": "75721a6efd56",
+  "keys": 39,
+  "main": null,
+  "files": {
+   "legacy-auth.ts": [
+    "// DEPRECATED: kept for the mobile app",
+    "export const oldLogin = () => null;",
+    "// DEPRECATED: kept for partner API v1",
+    "export const oldToken = () => null;"
+   ],
+   "legacy-session.ts": [
+    "export const oldSession = () => null;"
+   ]
+  }
+ },
+ "32.1": {
+  "hash": "0ab42d37881c",
+  "keys": 28,
+  "main": [
+   "const visible = users.filter(isActive);"
+  ],
+  "files": {}
+ },
+ "32.2": {
+  "hash": "201144f463f7",
+  "keys": 39,
+  "main": [
+   "function lookup(key: string) {",
+   "  if (!cache.has(key)) {",
+   "    cache.set(key, load(key));",
+   "  }",
+   "  return cache.get(key);",
+   "}"
+  ],
+  "files": {}
+ },
+ "32.3": {
+  "hash": "d576badfa28b",
+  "keys": 22,
+  "main": [
+   "async function inStock(sku: string) {",
+   "  const warehouseStockLevel = await inventory.count(sku);",
+   "  return warehouseStockLevel > 0;",
+   "}"
+  ],
+  "files": {}
+ },
+ "32.4": {
+  "hash": "eb6d95117068",
+  "keys": 34,
+  "main": [
+   "function reconcileLedgerEntries(entries: Entry[]) {",
+   "  return entries.filter((entry) => !entry.cleared);",
+   "}",
+   "const open = reconcileLedgerEntries(journal);"
+  ],
+  "files": {}
+ },
+ "33.1": {
+  "hash": "a898ed3a85ba",
+  "keys": 26,
+  "main": [
+   "type Parcel = { trackingCode: string; weightKg: number };",
+   "",
+   "function describe(parcel: Parcel) {",
+   "  return formatWeight(parcel.weightKg);",
+   "}"
+  ],
+  "files": {}
+ },
+ "33.2": {
+  "hash": "7fcdec4b40ed",
+  "keys": 9,
+  "main": [
+   "export function mount(routes: Route[]) {",
+   "  for (const route of routes) {",
+   "    register(route.path, route.handler);",
+   "    metrics.count(\"route.registered\");",
+   "    logger.debug(route.path);",
+   "  }",
+   "}"
+  ],
+  "files": {}
+ },
+ "33.3": {
+  "hash": "e4c94362676f",
+  "keys": 24,
+  "main": [
+   "export const PAGE_SIZE = 25;",
+   "",
+   "export function pageCount(total: number) {",
+   "  return Math.ceil(total / PAGE_SIZE);",
+   "}"
+  ],
+  "files": {}
+ },
+ "33.4": {
+  "hash": "cf2fc61ac2b0",
+  "keys": 29,
+  "main": [
+   "export const httpDefaults = {",
+   "  timeoutMs: 2000,",
+   "  keepAlive: true,",
+   "  compress: true,",
+   "  headers: { accept: \"application/json\" },",
+   "  retries: 3,",
+   "};"
+  ],
+  "files": {}
+ },
+ "34.1": {
+  "hash": "a48481b45c29",
+  "keys": 14,
+  "main": [
+   "const orders = await fetchOrders(customerId);",
+   "if (orders.length === 0) {",
+   "  return [];",
+   "}",
+   "return orders.map(toSummary);"
+  ],
+  "files": {}
+ },
+ "34.2": {
+  "hash": "1ea366ac97eb",
+  "keys": 22,
+  "main": [
+   "export function printReceipt(order: Order) {",
+   "  const view = new ReceiptView(order);",
+   "  return emailReceipt(view.render());",
+   "}"
+  ],
+  "files": {}
+ },
+ "34.3": {
+  "hash": "34b300ec7c1c",
+  "keys": 27,
+  "main": [
+   "const deliveryFee = lookupFee(parcel.zone);",
+   "log.info(\"zoneFee computed\");",
+   "return base + deliveryFee;"
+  ],
+  "files": {}
+ },
+ "34.4": {
+  "hash": "38f8f842ab1b",
+  "keys": 18,
+  "main": [
+   "const user = session.user;",
+   "const cart = session.cart;",
+   "const locale = session.locale;"
+  ],
+  "files": {}
+ },
+ "35.1": {
+  "hash": "ea77e9819997",
+  "keys": 20,
+  "main": [
+   "export async function checkout(cart: Cart) {",
+   "  const total = priceOf(cart);",
+   "  const receipt = await charge(cart.owner, total);",
+   "  return receipt;",
+   "}"
+  ],
+  "files": {}
+ },
+ "35.2": {
+  "hash": "d52f386fc6a7",
+  "keys": 14,
+  "main": [
+   "const sample = `",
+   "ERROR ledger write failed: timeout",
+   "ERROR ledger write failed: disk full",
+   "`;"
+  ],
+  "files": {}
+ },
+ "35.3": {
+  "hash": "fd4440d30611",
+  "keys": 14,
+  "main": [
+   "const region = \"eu-west-1\";",
+   "const bucket = \"invoices-prod\";",
+   "const prefix = \"2024/\";",
+   "const maxKeys = 500;"
+  ],
+  "files": {}
+ },
+ "35.4": {
+  "hash": "c60210ac01f8",
+  "keys": 24,
+  "main": [
+   "export const columns = [",
+   "  column(\"sku\"),",
+   "  column(\"title\"),",
+   "  // price is formatted on the server",
+   "  column(\"price\"),",
+   "  column(\"stock\"),",
+   "];"
+  ],
+  "files": {}
+ },
+ "35.5": {
+  "hash": "934a31ca50eb",
+  "keys": 38,
+  "main": null,
+  "files": {
+   "audit-log.ts": [
+    "import { appendFile } from \"node:fs/promises\";",
+    "",
+    "export async function audit(actor: string, action: string) {",
+    "  const entry = `${Date.now()} ${actor} ${action}\\n`;",
+    "  await appendFile(\"audit.log\", entry);",
+    "}"
+   ]
+  }
+ },
+ "37.1": {
+  "hash": "4a7deb298333",
+  "keys": 4,
+  "main": [
+   "private static final int SCHEMA_VERSION = 42;",
+   "private static final int FREE_SEATS = 11;"
+  ],
+  "files": {}
+ },
+ "37.2": {
+  "hash": "0fe4157b2312",
+  "keys": 7,
+  "main": [
+   "int timeoutSeconds = 45;",
+   "int maxConnectionAttempts = 5;"
+  ],
+  "files": {}
+ },
+ "37.3": {
+  "hash": "540804380e77",
+  "keys": 8,
+  "main": [
+   "String line1 = reader.readLine();",
+   "String line2 = reader.readLine();",
+   "String line3 = reader.readLine();"
+  ],
+  "files": {}
+ },
+ "37.4": {
+  "hash": "2ed6535141a8",
+  "keys": 5,
+  "main": [
+   "static final int PRIORITY_LOW = 1;",
+   "static final int PRIORITY_NORMAL = 2;",
+   "static final int PRIORITY_HIGH = 3;",
+   "static final int PRIORITY_URGENT = 4;"
+  ],
+  "files": {}
+ },
+ "38.1": {
+  "hash": "c4be63db66f0",
+  "keys": 14,
+  "main": [
+   "const url = \"https://api.example.com/v1/orders\";"
+  ],
+  "files": {}
+ },
+ "38.2": {
+  "hash": "310e9ea7fdac",
+  "keys": 16,
+  "main": [
+   "const hint = \"vim rocks\";"
+  ],
+  "files": {}
+ },
+ "38.3": {
+  "hash": "ade1c5da1226",
+  "keys": 24,
+  "main": [
+   "import { auth } from \"./auth\";",
+   "import { cart } from \"./cart\";",
+   "import { mail } from \"./mail\";",
+   "import { zip } from \"./zip\";"
+  ],
+  "files": {}
+ }
+}

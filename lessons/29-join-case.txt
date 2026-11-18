@@ -1,0 +1,60 @@
+title: Join lines and change case: J ~ gU gu
+keys: J  3J  ~  gU{motion}  gu{motion}  g~{motion}  gUU  guu
+require: J :: J
+require: [2-9]J :: 3J
+require: ~ :: ~
+require: gU :: gU
+require: gu :: gu
+require: g~ :: g~
+ext: java
+
+J joins the line below onto the current one: the line break and the
+indentation become a single space. 3J joins three lines into one.
+
+  ~     flip the case of the character under the cursor and move right
+  gU    operator: make it UPPERCASE         gUiw a word     gUU the line
+  gu    operator: make it lowercase         guiw a word     guu the line
+  g~    operator: flip the case             g~iw a word
+
+gU, gu and g~ are operators like d and c: they take any motion or text
+object, and dot repeats them.
+
+== Join the first two lines with J. Then put the cursor on the if line and
+== press 3J to join it with the two lines below it.
+int total = add(subtotal,
+    shipping);
+if (user.isActive()
+    && user.hasRole("admin")
+    && !user.isLocked()) {
+  grantAccess(user);
+}
+-- J
+-- j3J
+== Two letters have the wrong case. Put the cursor on each and press ~ so
+== the line reads  String price = item.getPrice();
+string price = item.getprice();
+-- ~
+-- fp;~
+== The constant should be MAX_RETRIES: cursor on the name, then gUiw.
+== The field should be email: cursor on EMAIL, then guiw.
+private static final int max_retries = 5;
+private String EMAIL;
+-- fm
+-- gUiw
+-- j0fE
+-- guiw
+== Caps Lock was on for line {L}: lowercase the whole line with guu. Enum
+== constants are written in capitals: on the "free, team" line press gUU.
+PACKAGE COM.ACME.BILLING;
+
+public enum Tier {
+  free, team, enterprise
+}
+-- guu
+-- 3j
+-- gUU
+== Caps Lock again. Flip the first word back with g~iw, then put the cursor
+== on the other iNVOICEsERVICE and repeat with dot.
+iNVOICEsERVICE service = new iNVOICEsERVICE();
+-- g~iw
+-- 4W.

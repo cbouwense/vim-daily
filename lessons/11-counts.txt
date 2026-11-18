@@ -1,0 +1,56 @@
+title: Counts: repeat a command n times
+keys: {n}{command}  3w  5j  3x  2dd  d3w  3.
+require: \d+[wWbBeEhjkl] :: a count before a motion (4w, 5j)
+require: \d+(dd|x)|d\d+[wWeE]|\d+d[wWeE] :: a count with a delete (3x, 2dd, d3w)
+ext: ts
+
+A number typed before a command repeats it that many times:
+
+  3w    three words forward         5j    five lines down
+  3x    delete three characters     2dd   delete two lines
+  d3w   delete three words (3dw does the same)
+  3.    the last change again with a count of 3: after dd it acts as 3dd
+
+Counts save you from tapping a key over and over: see how far away the
+target is, type the number, then the command. If you miscount, u undoes
+the whole counted command in one step.
+
+== Jump from export to 300 with 4w, then change it to 5000 with cw.
+export const REQUEST_TIMEOUT = 300;
+-- 4w
+-- cw5000<Esc>
+== Drop the -rc suffix: $ then 4h puts you on the dash, 3x deletes it.
+export const API_VERSION = "v2.4.1-rc";
+-- $4h
+-- 3x
+== Jump down to the muted line with 5j, then delete it and the next: 2dd.
+const palette = {
+  primary: "#1d4ed8",
+  danger: "#b91c1c",
+  warning: "#b45309",
+  success: "#15803d",
+  muted: "#6b7280",
+  border: "#e5e7eb",
+};
+-- 5j
+-- 2dd
+== Make it a plain function: with the cursor on export, d3w.
+export default async function formatRows(rows: Row[]) {
+  return rows.map(formatRow);
+}
+-- d3w
+== Delete the debugger line with dd. Go down two lines with 2j, then remove
+== the three console.log lines with 3. (the dd again, with a count of 3).
+function syncInventory(items: Item[]) {
+  debugger;
+  const changed = items.filter(hasChanged);
+  upload(changed);
+  console.log(changed);
+  console.log(items.length);
+  console.log("sync done");
+  return changed.length;
+}
+-- j
+-- dd
+-- 2j
+-- 3.

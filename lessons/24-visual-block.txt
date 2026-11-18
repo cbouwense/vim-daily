@@ -1,0 +1,60 @@
+title: Visual block: Ctrl-v
+keys: Ctrl-v  I  A  $A  c  d  r
+require: <C-v>[^<IAcdr]*I :: Ctrl-v then I
+require: <C-v>[^<IAcdr]*A :: Ctrl-v then A
+require: <C-v>[^<IAcdr]*c :: Ctrl-v then c
+require: <C-v>[^<IAcdrx]*[dx] :: Ctrl-v then d
+require: <C-v>[^<IAcdr]*r :: Ctrl-v then r
+ext: java
+
+Ctrl-v starts VISUAL BLOCK mode: move the cursor to mark out a rectangle.
+
+  I text Esc   insert the text in front of the block, on every line
+  A text Esc   append it after the block. Press $ before A to append at
+               the end of every line, even when their lengths differ
+  c text Esc   replace the block with the text, on every line
+  d            delete the block
+  r{char}      overwrite every character in the block with {char}
+
+I and A are capitals here. While you type, only the first line changes:
+the other lines get the text when you press Esc.
+
+== Make all four fields private. Cursor on the S of the first String, Ctrl-v,
+== 3j, then I and type "private " (with the space), Esc.
+  String orderId;
+  String customerEmail;
+  BigDecimal total;
+  Instant placedAt;
+-- ^
+-- <C-v>3j
+-- Iprivate <Esc>
+== All three lines lack a semicolon and differ in length. Ctrl-v, 2j, then $
+== to reach every line end, then A; and Esc.
+long retries = policy.maxRetries()
+Duration backoff = policy.initialBackoff()
+boolean jitter = policy.usesJitter()
+-- <C-v>2j$
+-- A;<Esc>
+== The three constants should be int. Cursor on the l of the first long,
+== Ctrl-v, 2j, e to cover the word, then c and type int, Esc.
+static final long MAX_ROWS = 500;
+static final long PAGE_SIZE = 50;
+static final long TIMEOUT_SECONDS = 30;
+-- 2w
+-- <C-v>2je
+-- cint<Esc>
+== Uncomment the three lines: Ctrl-v, 2j, 2l to cover the "// " column,
+== then d.
+// cache.evict(key);
+// cache.warm(key);
+// metrics.count("evict");
+-- <C-v>2j2l
+-- d
+== Move all three paths to v2: cursor on the 1 of the first v1, Ctrl-v, 2j,
+== then r2.
+static final String ORDERS = "/api/v1/orders";
+static final String PRICES = "/api/v1/prices";
+static final String REFUND = "/api/v1/refund";
+-- f1
+-- <C-v>2j
+-- r2

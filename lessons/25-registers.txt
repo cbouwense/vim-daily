@@ -1,0 +1,64 @@
+title: Registers: "a "0 :reg
+keys: "ayy  "ap  "Ayy  "0p  :reg
+require: "[a-z]y :: "ayy
+require: "[a-z][pP] :: "ap
+require: "[A-Z]y :: "Ayy
+require: "0[pP] :: "0p
+require: :reg :: :reg
+ext: ts
+
+Every yank and delete lands in a register. Type " and a register name in
+front of a command to choose which one it uses:
+
+  "ayy   yank the line into register a       "ap   put register a
+  "Ayy   a capital letter appends to register a instead of replacing it
+  "0p    put the last yank. Deletes never touch "0, so the yank survives
+         any dd, dw or cw you do afterwards
+  :reg   list the registers and what they hold
+
+Plain p puts the unnamed register, which every yank AND every delete
+overwrites. "+ is the system clipboard, if your vim has clipboard support.
+
+== Yank the "Audit log" line into register a ("ayy) and the "Billing" line
+== into b ("byy). Put a inside supportMenu ("ap) and b inside financeMenu.
+export const adminMenu = [
+  { label: "Audit log", path: "/audit" },
+  { label: "Billing", path: "/billing" },
+];
+export const supportMenu = [
+];
+export const financeMenu = [
+];
+-- j"ayy
+-- j"byy
+-- 2j"ap
+-- 2j"bp
+== Yank DEFAULT_LOCALE with yiw. On the next line delete undefined with diw.
+== :reg shows the yank is still in "0 (Enter closes the list): put it, "0P.
+const DEFAULT_LOCALE = "en-GB";
+const locale = settings.locale ?? undefined;
+-- wyiw
+-- j$bdiw
+-- :reg<CR>
+-- "0P
+== Copy the expired and the suspended user into blockedFixtures: "ayy on the
+== first, "Ayy on the second, then "ap on the blockedFixtures line.
+const fixtures = [
+  userWith({ plan: "free" }),
+  userWith({ plan: "trial", expired: true }),
+  userWith({ plan: "team" }),
+  userWith({ plan: "team", suspended: true }),
+];
+const blockedFixtures = [
+];
+-- 2j"ayy
+-- 2j"Ayy
+-- 2j"ap
+== Yank tenantId with yiw. Replace each TODO with it: select the word with
+== viw, then "0p. (After the first replace, plain p would put TODO.)
+const tenantId = session.tenant.id;
+audit.log(TODO, "export started");
+queue.push({ job: "export", tenant: TODO });
+-- wyiw
+-- jfTviw"0p
+-- jfTviw"0p

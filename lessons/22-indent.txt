@@ -1,0 +1,67 @@
+title: Indenting: >> << =
+keys: >>  <<  3>>  >j  ==  =j
+require: >> :: >>
+require: <lt><lt> :: <<
+require: \d>> :: a count, as in 3>>
+require: >\d*j :: >j
+require: == :: ==
+require: =\d*j :: =j
+ext: java
+
+> and < are operators that shift lines one step (2 spaces here). = is the
+operator that re-indents lines to fit the braces around them.
+
+  >>   shift this line right       <<   shift it left
+  3>>  shift three lines           >j   shift this line and the next
+  ==   re-indent this line         =j   re-indent this line and the next
+
+All three take any motion or text object: >i{ shifts the inside of a block
+and =i{ re-indents it. In VISUAL mode, select lines with V, then press >, <
+or =. A shift repeats with the dot command.
+
+== The lock line sits one step too far left and the markReserved line one
+== step too far right. Fix them with >> and <<.
+void reserveSeat(Booking booking) {
+seatMap.lock(booking.seatId());
+    booking.markReserved();
+  audit.record(booking);
+}
+-- j>>
+-- j<lt><lt>
+== Cursor on the freeze line: 3>> shifts three lines at once. Then shift the
+== two lines inside the if one more step with >j.
+void closeMonth(Ledger ledger) {
+ledger.freeze();
+ledger.postAccruals();
+ledger.snapshot();
+  if (ledger.isBalanced()) {
+  archive.store(ledger);
+  notifier.monthClosed(ledger);
+  }
+}
+-- j3>>
+-- 4j>j
+== The "int cost" line is far off: fix it with ==. The two lines inside the
+== if are wrong in different ways: cursor on the first, then =j fixes both.
+int shippingCost(Parcel parcel) {
+        int cost = rates.lookup(parcel.zone());
+  if (parcel.isFragile()) {
+cost += FRAGILE_FEE;
+          cost += insurance.quote(parcel);
+  }
+  return cost;
+}
+-- j==
+-- 2j=j
+== The whole body is a mess. On its first line (List<String> emails) press V,
+== extend the selection to the return line with 6j, then = re-indents it.
+List<String> activeEmails(List<Account> accounts) {
+List<String> emails = new ArrayList<>();
+      for (Account account : accounts) {
+  if (account.isActive()) {
+            emails.add(account.email());
+    }
+        }
+return emails;
+}
+-- jV6j=

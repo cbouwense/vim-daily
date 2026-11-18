@@ -1,0 +1,71 @@
+title: Back to where you were: gi gv g;
+keys: gi  gv  g;  g,
+require: gi :: gi
+require: gv :: gv
+require: g; :: g;
+ext: ts
+
+Three ways back to where you were working:
+
+  gi   return to where you last left INSERT mode and carry on inserting
+  gv   reselect the last visual selection, to run another command on it
+  g;   jump to the position of the last change; press again for the one
+       before that. g, steps forward again.
+
+gi is for "I stopped typing to look something up". g; answers "where was I
+editing?" and leaves you in NORMAL mode on the change. If the first g;
+lands where you already are, press it again.
+
+== On the return line press A, type  parcel.  and Esc. Look up the field name
+== with {L}G, then gi resumes your insert: type  weightKg);  and Esc.
+type Parcel = { trackingCode: string; weightKg: number };
+
+function describe(parcel: Parcel) {
+  return formatWeight(
+}
+-- 3j
+-- Aparcel.<Esc>
+-- {L}G
+-- giweightKg);<Esc>
+== Select the three unindented lines with Vjj and indent them with >. One
+== level is not enough: gv brings the selection back, then > again.
+export function mount(routes: Route[]) {
+  for (const route of routes) {
+register(route.path, route.handler);
+metrics.count("route.registered");
+logger.debug(route.path);
+  }
+}
+-- 2j
+-- Vjj>
+-- gv>
+== Line {L+3}: cw on 20, type  page_size  and Esc. Compare with line {L}
+== ({L}G): it is in capitals. g; jumps back to your edit: fix it with gUiw.
+export const PAGE_SIZE = 25;
+
+export function pageCount(total: number) {
+  return Math.ceil(total / 20);
+}
+-- 3j
+-- f2
+-- cwpage_size<Esc>
+-- {L}G
+-- g;
+-- gUiw
+== Change 500 to 5000 with cw, then retries from 1 to 3 with r. Second
+== thoughts: g; g; steps back two changes to the timeout. ciw it to 2000.
+export const httpDefaults = {
+  timeoutMs: 500,
+  keepAlive: true,
+  compress: true,
+  headers: { accept: "application/json" },
+  retries: 1,
+};
+-- j
+-- f5
+-- cw5000<Esc>
+-- 4j
+-- 0f1
+-- r3
+-- g;g;
+-- ciw2000<Esc>

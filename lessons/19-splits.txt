@@ -1,0 +1,102 @@
+title: Split windows: :sp :vsp Ctrl-w
+keys: :sp  :vsp  Ctrl-w h/j/k/l  Ctrl-w c  Ctrl-w o
+require: :vsp :: :vsp
+require: :sp :: :sp
+require: <C-w>[hjklwp] :: Ctrl-w h/j/k/l
+require: <C-w>[co] :: Ctrl-w c
+ext: ts
+
+Split the screen to see two files, or two parts of one file, at once:
+
+  :sp file         split, file on top        :vsp file    split, file on the left
+  Ctrl-w h/j/k/l   move to the window left / below / above / right
+  Ctrl-w w         cycle through the windows
+  Ctrl-w c         close this window         Ctrl-w o     keep only this one
+
+With no file name, :sp and :vsp show the same buffer twice. This lesson pane
+is a window too: Ctrl-w k can land here, Ctrl-w j goes back down, and
+:Lesson reopens it after Ctrl-w o. Closing a window does not close the file.
+
+== Open api-client.ts, then ":vsp api-types.ts" beside it. Go back with
+== Ctrl-w l and, reading the type, make createClient return
+== { baseUrl: options.baseUrl, timeoutMs: options.timeoutMs }
+@ file: api-client.ts
+import { ApiOptions } from "./api-types";
+
+export function createClient(options: ApiOptions) {
+  return { baseUrl: options.baseUrl };
+}
+@ file: api-types.ts
+export type ApiOptions = {
+  baseUrl: string;
+  timeoutMs: number;
+};
+-- :e api-client.ts<CR>
+-- :vsp api-types.ts<CR>
+-- <C-w>l
+-- 4G
+-- f}h
+-- i, timeoutMs: options.timeoutMs<Esc>
+== Open settings-form.ts and type :sp to see it twice. Rename MAX_LEN to
+== MAX_LENGTH at the top; Ctrl-w j, G, and rename it at the bottom too.
+== Close the extra window with Ctrl-w c.
+@ file: settings-form.ts
+export const MAX_LEN = 40;
+
+export type Field = {
+  name: string;
+  label: string;
+  value: string;
+  required: boolean;
+};
+
+export function emptyField(name: string, label: string): Field {
+  return { name, label, value: "", required: false };
+}
+
+export function isFilled(field: Field) {
+  return field.value.trim().length > 0;
+}
+
+export function missing(fields: Field[]) {
+  return fields.filter((f) => f.required && !isFilled(f));
+}
+
+export function labelFor(field: Field) {
+  return field.required ? field.label + " *" : field.label;
+}
+
+export function tooLong(field: Field) {
+  return field.value.length > MAX_LEN;
+}
+-- :e settings-form.ts<CR>
+-- :sp<CR>
+-- /MAX_LEN<CR>
+-- cwMAX_LENGTH<Esc>
+-- <C-w>j
+-- G
+-- N
+-- .
+-- <C-w>c
+== The test is missing darkMode. Open feature-flags.ts, then
+== ":sp feature-flags.test.ts". Yank the darkMode line in the lower window
+== (Ctrl-w j) and put it below newCheckout in the test (Ctrl-w k).
+@ file: feature-flags.ts
+export const flags = {
+  newCheckout: true,
+  darkMode: false,
+};
+@ file: feature-flags.test.ts
+import { flags } from "./feature-flags";
+
+const expected = {
+  newCheckout: true,
+};
+-- :e feature-flags.ts<CR>
+-- :sp feature-flags.test.ts<CR>
+-- <C-w>j
+-- 3G
+-- yy
+-- <C-w>k
+-- 4G
+-- p

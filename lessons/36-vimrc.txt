@@ -1,0 +1,24 @@
+title: Make it yours: the vimrc
+keys: set number relativenumber   let mapleader   nnoremap
+kind: vimrc
+vimrc: ^\s*set\s.*\b(number|nu)\b :: set number
+vimrc: ^\s*set\s.*\b(relativenumber|rnu)\b :: set relativenumber
+vimrc: ^\s*let\s+(g:)?mapleader\s*= :: let mapleader = " "
+vimrc: ^\s*nnoremap\s+(<silent>\s+)?<[Ll]eader>\S :: an nnoremap <leader> mapping
+
+Your vimrc runs every time vim starts. Three things earn a place early:
+
+  set number relativenumber      the cursor line shows its real number, the
+                                 others their distance: 7j and d3k without counting
+  let mapleader = " "            Space becomes your own prefix key
+  nnoremap <leader>f :Files<CR>      Space f: fuzzy file finder
+  nnoremap <leader>b :Buffers<CR>    Space b: pick a buffer
+  nnoremap <leader>w :w<CR>          Space w: save
+
+nnoremap = a NORMAL-mode mapping whose right-hand side ignores other mappings.
+Map only what you do many times a day. A backup of this file was just made.
+
+== Go to the end of the file (G) and add the line:  set number relativenumber
+== Below it add:  let mapleader = " "    (it must come before the mappings)
+== Add the three nnoremap lines from above, or leader mappings of your own.
+== Save with :w, run ":source %" to load it now, then finish with :wq.

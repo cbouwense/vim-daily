@@ -1,0 +1,5 @@
+progress.log text eol=lf merge=union
+*.txt text eol=lf
+*.vim text eol=lf
+*.py text eol=lf
+targets.json text eol=lf

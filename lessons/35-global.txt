@@ -1,0 +1,74 @@
+title: Every matching line: :g :v :normal
+keys: :g/pattern/cmd  :v/pattern/cmd  :{range}normal {keys}
+require: g/[^/]{1,40}/d<CR> :: :g/pattern/d
+require: v/[^/]{1,40}/d<CR> :: :v/pattern/d
+require: [\d}] ?norm(al)? \S :: :{range}normal
+require: g/[^/]{1,40}/norm(al)? \S :: :g/pattern/normal
+ext: ts
+
+:g runs an ex command on every line that matches a pattern:
+
+  :g/console.log/d       delete every line that contains console.log
+  :v/ERROR/d             the inverse: delete the lines that do NOT match
+  :12,20g/TODO/d         a range in front limits it to those lines
+
+:normal types NORMAL-mode keys on each line of a range, as if by hand:
+
+  :12,15normal A;        append ; to lines 12 to 15
+  :g/pattern/normal A,   both together: append , to every matching line
+
+With no range, :g and :v scan the whole file and :normal does one line.
+
+== Delete the three console.log lines, and only inside this function:
+==   :{L},{L+7}g/console.log/d
+export async function checkout(cart: Cart) {
+  console.log("cart", cart);
+  const total = priceOf(cart);
+  console.log("total", total);
+  const receipt = await charge(cart.owner, total);
+  console.log("receipt", receipt);
+  return receipt;
+}
+-- :{L},{L+7}g/console.log/d<CR>
+== Keep only the ERROR lines of the sample log: delete every line from {L+1}
+== to {L+5} that does not match, with  :{L+1},{L+5}v/ERROR/d
+const sample = `
+INFO  cache warmed in 120ms
+ERROR ledger write failed: timeout
+INFO  job 4411 finished
+ERROR ledger write failed: disk full
+DEBUG heartbeat
+`;
+-- :{L+1},{L+5}v/ERROR/d<CR>
+== Every line is missing its semicolon. Append one to all four at once:
+==   :{L},{L+3}normal A;
+const region = "eu-west-1"
+const bucket = "invoices-prod"
+const prefix = "2024/"
+const maxKeys = 500
+-- :{L},{L+3}normal A;<CR>
+== Add the missing comma after each column(...) line, but not after the
+== comment:  :{L},{L+6}g/column(/normal A,
+export const columns = [
+  column("sku")
+  column("title")
+  // price is formatted on the server
+  column("price")
+  column("stock")
+];
+-- :{L},{L+6}g/column(/normal A,<CR>
+== Save with :w, open audit-log.ts with :e, and delete every console.debug
+== line in it. The whole file is yours, so no range:  :g/console.debug/d
+@ file: audit-log.ts
+import { appendFile } from "node:fs/promises";
+
+export async function audit(actor: string, action: string) {
+  console.debug("audit called");
+  const entry = `${Date.now()} ${actor} ${action}\n`;
+  console.debug("entry built", entry);
+  await appendFile("audit.log", entry);
+  console.debug("entry written");
+}
+-- :w<CR>
+-- :e audit-log.ts<CR>
+-- :g/console.debug/d<CR>

@@ -1,0 +1,46 @@
+title: Add and subtract: Ctrl-a Ctrl-x
+keys: Ctrl-a  Ctrl-x  {n}Ctrl-a  g Ctrl-a
+require: <C-a> :: Ctrl-a
+require: <C-x> :: Ctrl-x
+require: \d<C-[ax]> :: a count, as in 5 Ctrl-a
+require: g<C-a> :: g Ctrl-a
+ext: java
+
+Ctrl-a adds 1 to the number under the cursor, or to the next number on the
+line, so the cursor only has to be somewhere before it. Ctrl-x subtracts 1.
+
+  Ctrl-a      add 1                 Ctrl-x       subtract 1
+  5 Ctrl-a    add 5                 20 Ctrl-x    subtract 20
+
+Digits inside a name count too: on line1, Ctrl-a gives line2. That makes
+"yyp, then Ctrl-a" a quick way to continue a numbered series.
+
+Select lines with V and press g Ctrl-a to count up line by line: four
+lines that all say 0 become 1, 2, 3, 4.
+
+== Bump SCHEMA_VERSION to 42: with the cursor anywhere before the number,
+== press Ctrl-a. One seat was sold: on the FREE_SEATS line press Ctrl-x.
+private static final int SCHEMA_VERSION = 41;
+private static final int FREE_SEATS = 12;
+-- <C-a>
+-- j^<C-x>
+== Raise the timeout from 30 to 45 with 15 Ctrl-a, and lower the attempts
+== from 8 to 5 with 3 Ctrl-x.
+int timeoutSeconds = 30;
+int maxConnectionAttempts = 8;
+-- 15<C-a>
+-- j^
+-- 3<C-x>
+== Read three lines: duplicate the line with yyp and press Ctrl-a on the copy
+== to make it line2. Do the same once more for line3.
+String line1 = reader.readLine();
+-- yyp<C-a>
+-- yyp<C-a>
+== Number the priorities 1 to 4: select the four lines with V3j, then press
+== g Ctrl-a.
+static final int PRIORITY_LOW = 0;
+static final int PRIORITY_NORMAL = 0;
+static final int PRIORITY_HIGH = 0;
+static final int PRIORITY_URGENT = 0;
+-- V3j
+-- g<C-a>

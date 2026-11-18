@@ -1,0 +1,39 @@
+title: Repeat the last change: .
+keys: .
+require: \. :: . (dot)
+ext: ts
+
+The dot command repeats your last change at the cursor:
+
+  .   do the last change again
+
+A change is anything that modified text: x, dd, dw, cw + text + Esc,
+A + text + Esc. Make one repeatable change, then alternate "move" and "dot":
+
+  A;<Esc>    j.    j.    j.         a semicolon on four lines
+
+u undoes a dot like any other change.
+
+== Add a semicolon to all four lines: A; Esc once, then j. three times.
+const a = 1
+const b = 2
+const c = 3
+const d = 4
+-- A;<Esc>
+-- j.j.j.
+== Change each let to const: cw once, then j0. for the other two lines.
+let total = 0;
+let count = 0;
+let index = 0;
+-- cwconst<Esc>
+-- j0.
+-- j0.
+== Delete the two extra "export" words: dw once, then dot.
+export export export default app;
+-- dw.
+== Prefix each field with "public " (with the space): I once, then j. twice.
+  name: string;
+  email: string;
+  role: Role;
+-- Ipublic <Esc>
+-- j.j.

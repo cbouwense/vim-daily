@@ -1,0 +1,49 @@
+title: Text objects for pairs: i" i( i{ it
+keys: i"  a"  i'  i(  a(  i{  a{  i[  it
+require: [cdy][ia]["'`] :: an operator with a quote object (ci")
+require: [cdy][ia][()\[\]{}] :: an operator with a bracket object (di( ci{ yi[)
+require: [cdy][ia]t :: cit
+ext: ts
+
+Text objects exist for everything that comes in pairs. i is "inside", a is
+"around", which includes the delimiters themselves:
+
+  i"  i'  i`   inside quotes            a"   the quotes too
+  i(  i[  i{   inside brackets          a(   the brackets too
+  it           inside an HTML/JSX tag   at   the whole element
+
+  ci"  retype a string         di(  empty an argument list
+  ci{  rewrite a block         yi[  copy the items of an array
+
+The cursor can be anywhere inside the pair, even on a line between { and }.
+For quotes, vim also looks ahead: ci" works from the start of the line.
+
+== Change the URL to /api/v2/invoices with ci" (it works from column 1).
+const endpoint = "/api/v1/orders";
+-- ci"/api/v2/invoices<Esc>
+== Empty the argument list: cursor anywhere inside the ( ), then di(.
+const report = buildReport(orders, { includeDrafts: true }, locale);
+-- f,
+-- di(
+== Rewrite the body: from any line inside the braces, ci{ and type
+== return Date.now() > token.expiresAt;
+function isExpired(token: Token): boolean {
+  const now = Date.now();
+  const expiry = token.issuedAt + token.ttlMs;
+  return now > expiry;
+}
+-- j
+-- ci{return Date.now() > token.expiresAt;<Esc>
+== Copy the three roles into the empty array: yi[ inside the first [ ],
+== then on the next line put them before the ] with P.
+const adminRoles = ["owner", "admin", "billing"];
+const auditRoles = [];
+-- f"
+-- yi[
+-- j$h
+-- P
+== Change the text between the tags to: Nothing matches your filters
+== Put the cursor in the text, then cit.
+const emptyState = `<p class="hint">No results</p>`;
+-- fN
+-- citNothing matches your filters<Esc>

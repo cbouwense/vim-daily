@@ -1,0 +1,33 @@
+title: Operator + motion: d
+keys: d{motion}  dw  de  d$  D
+require: d\d*w :: dw
+require: de :: de
+require: D|d\$ :: D or d$
+ext: ts
+
+d is an operator: it waits for a motion, then deletes whatever the motion
+crosses. Every motion you know becomes a delete:
+
+  dw   delete to the start of the next word
+  de   delete to the end of the word       db   back to the word's start
+  d$   delete to the end of the line (D is the short form)
+  d0   delete back to the start of the line
+
+Operator + motion is vim's grammar. The same motions work with every operator
+you will meet: c (change), y (copy), > (indent). dd is the line-wise shortcut.
+
+== Put the cursor on "legacy" and delete that word with dw.
+const legacy cache = new Map<string, User>();
+-- w
+-- dw
+== Delete the trailing comment: cursor on the space before //, then D.
+return fetch(url); // TODO remove this comment
+-- f/h
+-- D
+== Put the cursor on the U of USD and delete to the end of the word with de.
+const price = 100USD;
+-- fU
+-- de
+== Delete the whole first statement (const temp = 1;) word by word with dw.
+const temp = 1; const count = 0;
+-- dwdwdwdwdw

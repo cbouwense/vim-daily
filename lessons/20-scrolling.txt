@@ -1,0 +1,178 @@
+title: Scrolling: Ctrl-d Ctrl-u zz H M L
+keys: Ctrl-d  Ctrl-u  Ctrl-f  Ctrl-b  zz  zt  zb  H  M  L
+require: <C-d>|<C-f> :: Ctrl-d or Ctrl-f
+require: <C-u>|<C-b> :: Ctrl-u or Ctrl-b
+require: z[ztb] :: zz (or zt, zb)
+require: [HML] :: H, M or L
+ext: ts
+
+Move through a long file a screen at a time instead of holding j:
+
+  Ctrl-d   half a page down         Ctrl-u   half a page up
+  Ctrl-f   a full page forward      Ctrl-b   a full page back
+  H  M  L  cursor to the top (High), Middle or bottom (Low) line you can see
+  zz       scroll so the cursor line sits in the centre of the window
+  zt  zb   the same, but put it at the top or at the bottom
+
+Scroll until the target is on screen, hop near it with H, M or L, then
+finish with j, k or a line number. After a jump that lands at the edge of
+the window, zz brings the surrounding code into view.
+
+== Go down with Ctrl-d until you see line {L+37} (ttlMinutes): change 30 to 45.
+== Then Ctrl-u back up to line {L+13} (poolMax) and change 20 to 40.
+export const appConfig = {
+  server: {
+    host: "0.0.0.0",
+    port: 8080,
+    requestTimeoutMs: 15000,
+    maxBodySizeKb: 512,
+    trustProxy: true,
+  },
+  database: {
+    host: "db.internal",
+    port: 5432,
+    name: "storefront",
+    poolMin: 2,
+    poolMax: 20,
+    idleTimeoutMs: 30000,
+    statementTimeoutMs: 8000,
+  },
+  cache: {
+    host: "cache.internal",
+    port: 6379,
+    keyPrefix: "sf:",
+    defaultTtlSeconds: 300,
+  },
+  mail: {
+    sender: "no-reply@storefront.test",
+    smtpHost: "smtp.internal",
+    smtpPort: 587,
+    retryAttempts: 3,
+  },
+  uploads: {
+    directory: "/var/storefront/uploads",
+    maxFileSizeMb: 25,
+    allowedExtensions: ["png", "jpg", "pdf"],
+    virusScan: true,
+  },
+  session: {
+    cookieName: "sf_session",
+    ttlMinutes: 30,
+    rolling: true,
+    sameSite: "lax",
+  },
+  features: {
+    giftCards: false,
+    guestCheckout: true,
+    productReviews: true,
+    wishlist: false,
+  },
+};
+-- <C-d><C-d>
+-- {L+37}G
+-- 2wcw45<Esc>
+-- <C-u><C-u>
+-- {L+13}G
+-- 2wcw40<Esc>
+== Ctrl-f down to line {L+40} (/refunds): H, M or L hops near it, then j or k.
+== Make it a POST. Then Ctrl-b up to line {L+5} (products.update): a PUT.
+export const routes: Route[] = [
+  { method: "GET", path: "/health", handler: health.check },
+  { method: "GET", path: "/products", handler: products.list },
+  { method: "GET", path: "/products/:id", handler: products.show },
+  { method: "POST", path: "/products", handler: products.create },
+  { method: "POST", path: "/products/:id", handler: products.update },
+  { method: "DELETE", path: "/products/:id", handler: products.remove },
+  { method: "GET", path: "/categories", handler: categories.list },
+  { method: "GET", path: "/categories/:id", handler: categories.show },
+  { method: "POST", path: "/categories", handler: categories.create },
+  { method: "GET", path: "/cart", handler: cart.show },
+  { method: "POST", path: "/cart/items", handler: cart.addItem },
+  { method: "PUT", path: "/cart/items/:id", handler: cart.updateItem },
+  { method: "DELETE", path: "/cart/items/:id", handler: cart.removeItem },
+  { method: "POST", path: "/cart/coupon", handler: cart.applyCoupon },
+  { method: "POST", path: "/checkout", handler: checkout.start },
+  { method: "POST", path: "/checkout/confirm", handler: checkout.confirm },
+  { method: "GET", path: "/orders", handler: orders.list },
+  { method: "GET", path: "/orders/:id", handler: orders.show },
+  { method: "POST", path: "/orders/:id/cancel", handler: orders.cancel },
+  { method: "GET", path: "/orders/:id/invoice", handler: orders.invoice },
+  { method: "GET", path: "/customers", handler: customers.list },
+  { method: "GET", path: "/customers/:id", handler: customers.show },
+  { method: "PUT", path: "/customers/:id", handler: customers.update },
+  { method: "GET", path: "/customers/:id/orders", handler: customers.orders },
+  { method: "GET", path: "/addresses", handler: addresses.list },
+  { method: "POST", path: "/addresses", handler: addresses.create },
+  { method: "PUT", path: "/addresses/:id", handler: addresses.update },
+  { method: "DELETE", path: "/addresses/:id", handler: addresses.remove },
+  { method: "GET", path: "/wishlist", handler: wishlist.show },
+  { method: "POST", path: "/wishlist/items", handler: wishlist.add },
+  { method: "DELETE", path: "/wishlist/items/:id", handler: wishlist.remove },
+  { method: "GET", path: "/reviews", handler: reviews.list },
+  { method: "POST", path: "/reviews", handler: reviews.create },
+  { method: "DELETE", path: "/reviews/:id", handler: reviews.remove },
+  { method: "GET", path: "/shipping/rates", handler: shipping.rates },
+  { method: "GET", path: "/shipping/track/:code", handler: shipping.track },
+  { method: "GET", path: "/payments/methods", handler: payments.methods },
+  { method: "POST", path: "/payments/intent", handler: payments.intent },
+  { method: "POST", path: "/payments/webhook", handler: payments.webhook },
+  { method: "GET", path: "/refunds", handler: refunds.create },
+  { method: "GET", path: "/refunds/:id", handler: refunds.show },
+  { method: "GET", path: "/reports/sales", handler: reports.sales },
+  { method: "GET", path: "/reports/stock", handler: reports.stock },
+  { method: "POST", path: "/admin/reindex", handler: admin.reindex },
+];
+-- <C-f>L
+-- {L+40}G
+-- ci"POST<Esc>
+-- <C-b>H
+-- {L+5}G
+-- ci"PUT<Esc>
+== Jump to accountSaved with {L+31}G, centre it with zz and change its text
+== to Saved. Then {L+6}G (greeting), zt to put it on top: Welcome back.
+export const messages = {
+  appName: "Corner Shop",
+  navHome: "Home",
+  navCatalog: "Catalog",
+  navCart: "Cart",
+  navAccount: "My account",
+  greeting: "Hi there",
+  searchPlaceholder: "Search products",
+  searchEmpty: "No products found",
+  filterPrice: "Price",
+  filterBrand: "Brand",
+  filterInStock: "In stock only",
+  sortNewest: "Newest first",
+  sortCheapest: "Lowest price first",
+  productAdd: "Add to cart",
+  productSoldOut: "Sold out",
+  productReviews: "Customer reviews",
+  cartTitle: "Your cart",
+  cartEmpty: "Your cart is empty",
+  cartSubtotal: "Subtotal",
+  cartShipping: "Shipping",
+  cartTotal: "Total",
+  cartCheckout: "Go to checkout",
+  checkoutAddress: "Delivery address",
+  checkoutPayment: "Payment method",
+  checkoutConfirm: "Place order",
+  orderThanks: "Thank you for your order",
+  orderNumber: "Order number",
+  orderTrack: "Track your parcel",
+  accountProfile: "Profile",
+  accountOrders: "Order history",
+  accountSaved: "Changes stored",
+  accountSignOut: "Sign out",
+  errorNetwork: "Check your connection and try again",
+  errorNotFound: "This page does not exist",
+  errorServer: "Something went wrong on our side",
+  footerTerms: "Terms of service",
+  footerPrivacy: "Privacy policy",
+  footerContact: "Contact us",
+};
+-- {L+31}G
+-- zz
+-- ci"Saved<Esc>
+-- {L+6}G
+-- zt
+-- ci"Welcome back<Esc>

@@ -1,0 +1,55 @@
+title: Line and file jumps: 0 ^ $ gg G
+keys: 0  ^  $  gg  G  {n}G
+require: \$ :: $
+require: \^ :: ^
+require: gg :: gg
+require: G :: G
+ext: ts
+
+Jump to the ends of a line, and of the file:
+
+  0    first column             ^    first non-blank character
+  $    last character of the line
+  gg   first line of the file   G    last line of the file
+  12G  line 12 (line numbers are shown on the left)
+
+On indented code ^ is usually the one you want.
+
+== Do this one LAST. From the bottom block, jump back up with gg, press j,
+== and insert "use (with the quote and a space after use) at the line start.
+@ first
+strict";
+const mode = "production";
+-- ggj
+-- i"use <Esc>
+== On the console.log line, jump to the first non-blank with ^ and insert "// ".
+function load() {
+    console.log("debug");
+    return cache;
+}
+-- j^
+-- i// <Esc>
+== verbose line: jump to the end with $ and insert the missing e of "true".
+== Then press j, jump to column 1 with 0, and insert // there.
+const flags = {
+    verbose: tru,
+    legacy: true,
+};
+-- j$
+-- ie<Esc>
+-- j0
+-- i//<Esc>
+== Jump straight to line {L+2} by typing {L+2}G, then fix "buid" to "build".
+const steps = [
+  "install",
+  "buid",
+  "deploy",
+];
+-- {L+2}G
+-- fdil<Esc>
+== Jump to the last line of the file with G and insert "export " at its start.
+@ last
+const routes = [];
+default routes;
+-- G
+-- iexport <Esc>

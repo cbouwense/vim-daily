@@ -1,0 +1,41 @@
+title: Find a character on the line: f t ; ,
+keys: f{char}  t{char}  F{char}  T{char}  ;  ,
+require: [dc]\d*t. :: dt or ct
+require: [dc]\d*f. :: df or cf
+require: (?<![fFtT]); :: ; (repeat the find)
+ext: java
+
+f and t jump to a character on the current line:
+
+  f,   forward ONTO the next comma       F,   the same, backward
+  t,   forward to just BEFORE it         T,   backward, to just after it
+  ;    repeat the last f t F or T        ,    repeat it the other way
+
+After an operator the difference between f and t matters:
+
+  dt)  delete up to the ), keep the )    df)  delete the ) as well
+  ct;  change everything before the ;    cf;  change through the ;
+
+Aim at a character that is rare on the line: punctuation, a capital.
+
+== Fix the loop header: f, then ; lands on the second comma, r; fixes it.
+== Then , goes back to the first comma and . repeats the fix.
+for (int i = 0, i < rows.size(), i++) {
+  exporter.write(rows.get(i));
+}
+-- f,;
+-- r;
+-- ,.
+== Drop the last two arguments: f, to the first comma, then dt).
+logger.warn("retrying", attempt, lastError);
+-- f,
+-- dt)
+== Replace (1 + taxRate) with taxMultiplier: f( then cf) and type the name.
+double total = price * (1 + taxRate) * quantity;
+-- f(
+-- cf)taxMultiplier<Esc>
+== Change summary.csv to totals.csv: $ then T/ lands just after the last
+== slash, ct" changes everything up to the quote.
+String path = baseDir + "/reports/" + year + "/summary.csv";
+-- $T/
+-- ct"totals.csv<Esc>

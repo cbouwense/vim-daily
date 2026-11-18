@@ -1,0 +1,75 @@
+title: Macros: q @
+keys: qa ... q  @a  @@  3@a
+require: q[a-z] :: qa
+require: @[a-z] :: @a
+require: @@ :: @@
+require: \d@[a-z] :: a count, as in 3@a
+ext: ts
+
+A macro is a recording of your keystrokes that you can play back.
+
+  qa    start recording into register a       q    stop recording
+  @a    play the recording                    @@   play the last one again
+  3@a   play it three times
+
+Record it so that it works on any line and chains to the next one:
+  1. start at a known position: 0, ^ or I
+  2. make the change, moving with w, f or $ instead of counting columns
+  3. move to the next line with j, then stop with q
+One u undoes a whole playback, even 3@a. A bad recording? Just qa again.
+
+== Make each key a call like  await cache.evict("pricing:eu");  On the first
+== line: qa, I and the front part, Esc, A and ); Esc, j, q. Then @a, then @@.
+"pricing:eu"
+"pricing:us"
+"catalog:index"
+-- qa
+-- Iawait cache.evict(<Esc>
+-- A);<Esc>
+-- jq
+-- @a
+-- @@
+== Make each word an entry like  pending: "pending",  On the pending line:
+== qa, ^, yiw, A and type up to the first quote, Esc, p, A for the rest, Esc,
+== j, q. Then 3@a does the other three lines.
+const statusLabel = {
+  pending
+  shipped
+  delivered
+  refunded
+};
+-- j
+-- qa
+-- ^yiw
+-- A: "<Esc>
+-- p
+-- A",<Esc>
+-- jq
+-- 3@a
+== Make each line a call like  tiers.set("gold", 500);  Record: qa, I for the
+== front, f and a comma to reach the comma, i for the quote, A for the end,
+== j, q. Then 2@a plays it on the other two lines.
+gold, 500
+silver, 250
+platinum, 1000
+-- qa
+-- Itiers.set("<Esc>
+-- f,i"<Esc>
+-- A);<Esc>
+-- jq
+-- 2@a
+== Each test must be async and start with  await resetDb();  On the first
+== line: qa, 0, f( then ; to the second (, i and "async " with its space, Esc,
+== o and the new line with two spaces in front, Esc, 2j, q. Then 2@a.
+it("parses dates", () => {
+});
+it("rejects empty input", () => {
+});
+it("trims whitespace", () => {
+});
+-- qa
+-- 0f(;
+-- iasync <Esc>
+-- o  await resetDb();<Esc>
+-- 2jq
+-- 2@a

@@ -1,0 +1,61 @@
+title: Substitute: :s and :%s
+keys: :s/old/new/  :s/old/new/g  :5,9s/old/new/g  :%s/old/new/gc
+require: :s/ :: :s
+require: s/[^/]*/[^/]*/c?gc?<CR> :: the g flag
+require: :[^:/]+,[^:/]+s/ :: a line range, as in :12,15s/old/new/
+require: :%s/ :: :%s
+require: s/[^/]*/[^/]*/g?cg?<CR> :: the c flag
+ext: ts
+
+:s replaces text. The old and the new text go between slashes:
+
+  :s/old/new/          the first match on the cursor line
+  :s/old/new/g         every match on the line (g for global)
+  :12,15s/old/new/g    every match on lines 12 to 15
+  :%s/old/new/g        every match in the file (% means all lines)
+  :%s/old/new/gc       the same, but ask at each match: y yes, n no, q quit
+
+The old text is a pattern like the one / searches for, so . and * are
+special in it. One u undoes a whole substitute.
+
+== Rename only the variable: :s/label/title/ changes the first match on the
+== cursor line and leaves the second one alone.
+const label = formatLabel(order.label, locale);
+-- :s/label/title/<CR>
+== Rename tmp to draft everywhere on the line by adding the g flag:
+== :s/tmp/draft/g
+tmp.items = dedupe(tmp.items).concat(tmp.pending);
+-- :s/tmp/draft/g<CR>
+== The three seller lines were pasted from the buyer line. Replace every
+== buyer with seller on just those lines:  :{L+2},{L+4}s/buyer/seller/g
+function partyLines(buyer: Party, seller: Party) {
+  const buyerLine = `${buyer.name} <${buyer.email}>`;
+  const sellerLine = `${buyer.name} <${buyer.email}>`;
+  const sellerCity = buyer.address?.city ?? buyer.region;
+  const sellerPhone = buyer.phone ?? buyer.mobile;
+  return { buyerLine, sellerLine, sellerCity, sellerPhone };
+}
+-- :{L+2},{L+4}s/buyer/seller/g<CR>
+== Rename the parameter id to ownerId, but keep the record's "id: file.id".
+== :{L},{L+2}s/id/ownerId/gc stops at each of the five matches: press y or n.
+function attach(id: string, file: Upload) {
+  const record = { id: file.id, owner: id };
+  return store.put(id, record);
+}
+-- :{L},{L+2}s/id/ownerId/gc<CR>
+-- ynnyy
+== Save with :w, open invoice-totals.ts with :e, and rename amt to amount in
+== the whole file:  :%s/amt/amount/g
+@ file: invoice-totals.ts
+export type InvoiceLine = { sku: string; amt: number; vatRate: number };
+
+export function invoiceTotal(lines: InvoiceLine[]): number {
+  let amt = 0;
+  for (const line of lines) {
+    amt += line.amt * (1 + line.vatRate);
+  }
+  return amt;
+}
+-- :w<CR>
+-- :e invoice-totals.ts<CR>
+-- :%s/amt/amount/g<CR>

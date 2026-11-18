@@ -1,0 +1,47 @@
+title: INSERT-mode keys: Ctrl-w Ctrl-u Ctrl-r Ctrl-n
+keys: Ctrl-w  Ctrl-u  Ctrl-r {register}  Ctrl-n  Ctrl-p
+require: <C-w> :: Ctrl-w
+require: <C-u> :: Ctrl-u
+require: <C-r>[0-9a-z"] :: Ctrl-r {register}
+require: <C-n>|<C-p> :: Ctrl-n
+ext: ts
+
+These keys work while you are typing in INSERT mode, so a slip does not cost
+you an Esc and a trip through NORMAL mode:
+
+  Ctrl-w     delete the word before the cursor
+  Ctrl-u     delete everything you typed on this line
+  Ctrl-r 0   paste the last yank; Ctrl-r takes any register name
+  Ctrl-n     complete the word you are typing from the words in the file
+  Ctrl-p     the same, looking upward first; repeat either to see more
+
+Ctrl-w and Ctrl-u also work on the : command line and in most shells.
+
+== Press A and type  .filter(isActve  with that typo. Stay in INSERT mode:
+== Ctrl-w deletes the word, then type  isActive);  and Esc.
+const visible = users
+-- A.filter(isActve<C-w>isActive);<Esc>
+== On the line with the if's closing brace press o and type  return null;
+== Wrong idea: Ctrl-u wipes it. Type  return cache.get(key);  and Esc.
+function lookup(key: string) {
+  if (!cache.has(key)) {
+    cache.set(key, load(key));
+  }
+}
+-- 3j
+-- oreturn null;<C-u>return cache.get(key);<Esc>
+== Yank the name warehouseStockLevel with yiw. Press o, type  return  and a
+== space, paste the name with Ctrl-r 0, then type  > 0;  and Esc.
+async function inStock(sku: string) {
+  const warehouseStockLevel = await inventory.count(sku);
+}
+-- jww
+-- yiw
+-- oreturn <C-r>0 > 0;<Esc>
+== Open a line under the function (o on its last line) and type
+==   const open = reconc   then Ctrl-n to complete the name, then  (journal);
+function reconcileLedgerEntries(entries: Entry[]) {
+  return entries.filter((entry) => !entry.cleared);
+}
+-- 2j
+-- oconst open = reconc<C-n>(journal);<Esc>

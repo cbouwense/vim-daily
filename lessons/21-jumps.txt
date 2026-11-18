@@ -1,0 +1,53 @@
+title: Jumps: % gd Ctrl-o Ctrl-i
+keys: %  d%  gd  Ctrl-o  Ctrl-i
+require: % :: %
+require: d% :: d%
+require: gd :: gd
+require: <C-o> :: Ctrl-o
+require: <Tab> :: Ctrl-i
+ext: ts
+
+A jump moves the cursor far in one go, and vim remembers where it started.
+
+  %        jump to the matching ( ) [ ] { }. If the cursor is not on a
+           bracket, % uses the next one on the line
+  d%       % is a motion: delete from one bracket through its partner
+  gd       go to where the name under the cursor is declared
+  Ctrl-o   go back to where you were before the jump
+  Ctrl-i   go forward again, the reverse of Ctrl-o
+
+G, gg, {n}G, searches, % and gd are jumps; j, k and w are not. Press Ctrl-o
+several times to walk back through older positions.
+
+== Cursor on the ( after "round". % jumps to its closing ): insert ", 2"
+== before it, so the line ends with  0), 2);
+const net = round(rows.reduce((sum, row) => sum + row.qty * row.price, 0));
+-- f(%
+-- i, 2<Esc>
+== onClick needs the function itself, not its result. Put the cursor on the
+== ( after submitOrder and delete the whole argument list with d%.
+saveButton.onClick(submitOrder(form.values(), { validate: true }));
+-- f(;
+-- d%
+== On the return line put the cursor on turbineRetryLimit. gd jumps to where
+== it is declared: change 3 to 5. Ctrl-o takes you back: append the missing ;
+const turbineRetryLimit = 3;
+const turbineBackoffMs = 250;
+function turbineDelay(attempt: number) {
+  return attempt < turbineRetryLimit ? turbineBackoffMs * attempt : -1
+}
+-- 3j3w
+-- gd
+-- f3r5
+-- <C-o>
+-- A;<Esc>
+== From the let line, % jumps to the closing }. Ctrl-o goes back: change let
+== to const. Ctrl-i jumps forward to the } again: append ; there.
+let exportOptions = {
+  format: "csv",
+  columns: ["id", "total", "paidAt"],
+  pageSize: 500,
+}
+-- %
+-- <C-o>cwconst<Esc>
+-- <C-i>A;<Esc>

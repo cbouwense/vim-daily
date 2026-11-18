@@ -1,0 +1,38 @@
+title: Word motions: w b e
+keys: w  b  e  (W  B  E)
+require: w :: w
+require: b :: b
+require: e :: e
+ext: ts
+
+Moving one letter at a time is slow. Move by word instead:
+
+  w   forward to the start of the next word
+  b   back to the start of the previous word
+  e   forward to the end of the word
+
+Punctuation counts as a word of its own, so w also stops at "(" and ",".
+The capitals W B E only stop at spaces: one W hops over user.profile.name.
+Fine-tune with h and l after a hop.
+
+== Hop with w to "quantity" and insert "* " in front of it.
+const total = price quantity;
+-- wwww
+-- i* <Esc>
+== Make the first "user" read "userId": e to the end of the word (twice),
+== l to step past it, then insert Id.
+const user = getUser();
+-- ee
+-- liId<Esc>
+== Hop with w to "delay" and insert "timeout, " before it. Then hop back
+== with b to "message" and insert "to, " before it.
+function send(message, retries, delay) {
+-- wwwwwww
+-- itimeout, <Esc>
+-- bbbbbb
+-- ito, <Esc>
+== Two W hops reach the string (w would need ten). Step inside the quote
+== with l and insert "very-".
+user.profile.settings.theme.color = "dark";
+-- WW
+-- livery-<Esc>

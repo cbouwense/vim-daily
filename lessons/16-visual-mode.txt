@@ -1,0 +1,50 @@
+title: Visual mode: v V
+keys: v  V  o  Esc  then d c y p
+require: v[^<]{1,15}[dycp] :: v, a motion, then d c y or p
+require: V[^<]{0,15}[dycp] :: V, then d c y or p
+ext: ts
+
+Visual mode turns the grammar around: select first, look, then act.
+
+  v     select characters           V     select whole lines
+  o     jump to the other end of the selection, to adjust where it starts
+  Esc   cancel the selection
+
+Any motion extends the selection (w e $ j 3j f, ; /text), and text objects
+select directly: viw a word, vi" a string. Then one key acts on it:
+
+  d  delete     c  change     y  yank     p  replace it with the last yank
+
+If you can name the target, operator + motion is shorter and dot repeats it.
+
+== Remove the middle name: f+ to the first +, then v. ; ; and h grow the
+== selection to just before the third +. d deletes it.
+const name = user.first + " " + user.middle + " " + user.last;
+-- f+
+-- v;;h
+-- d
+== The terms check must come first: select its three lines with V and 2j,
+== d, then go up one line and put them back with P.
+async function submit(form: SignupForm) {
+  await api.createAccount(form);
+  if (!form.acceptedTerms) {
+    throw new Error("terms not accepted");
+  }
+  track("signup");
+}
+-- 2j
+-- V2jd
+-- kP
+== Replace "retryCount * 250": cursor on the *, v, e. Then o jumps to the
+== other end and b grows it to the left. c, then type backoff(retryCount)
+const delayMs = retryCount * 250 + jitter;
+-- f*
+-- veob
+-- cbackoff(retryCount)<Esc>
+== Yank orderConfirmationTemplate with yiw. On the next line select tmpl
+== with viw and press p to replace it with what you yanked.
+const orderConfirmationTemplate = loadTemplate("order-confirmation");
+mailer.send(customer.email, tmpl);
+-- wyiw
+-- jf,w
+-- viwp

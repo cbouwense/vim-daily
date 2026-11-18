@@ -1,0 +1,38 @@
+title: Find your own answers: :help
+keys: :help  Ctrl-]  Ctrl-o  :helpgrep
+require: :h(elp)?\s :: :help
+ext: ts
+
+Vim documents every key. Looking things up yourself ends the need for lessons.
+
+  :help ciw          a NORMAL-mode command
+  :help i_CTRL-W     the same key in INSERT mode (v_ visual, c_ command line)
+  :help 'number'     an option, in quotes
+  :help :sort        an ex command
+  Ctrl-]             follow the link under the cursor       Ctrl-o   go back
+  :helpgrep word     search all of the help; matches land in the quickfix list
+  :q                 close the help window
+
+Type :help and part of a name, then Ctrl-d to list matches or Tab to complete.
+
+== Read ":help gJ", close it with :q, then join these two lines into one
+== string with no space in between.
+const url = "https://api.example.com/v1/
+orders";
+-- :help gJ<CR>
+-- :q<CR>
+-- gJ
+== ":help g?" describes an operator. Use it on the text inside the quotes.
+const hint = "ivz ebpxf";
+-- :help g?<CR>
+-- :q<CR>
+-- g?i"
+== Read ":help :sort", then sort these four import lines with it
+== (they are lines {L} to {L+3}).
+import { zip } from "./zip";
+import { auth } from "./auth";
+import { mail } from "./mail";
+import { cart } from "./cart";
+-- :help :sort<CR>
+-- :q<CR>
+-- :{L},{L+3}sort<CR>

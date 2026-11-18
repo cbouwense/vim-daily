@@ -1,0 +1,64 @@
+title: Search: / ? n N * #
+keys: /text  ?text  n  N  *  #
+require: /([^<]|<BS>)+<CR> :: /text Enter
+require: \?([^<]|<BS>)+<CR> :: ?text Enter
+require: (<CR>|<Esc>|[*#.])[nN]|[nN]\. :: n or N
+require: [*#] :: * or #
+require: d/([^<]|<BS>)+<CR> :: d/text Enter
+ext: ts
+
+Search is the fastest way to reach anything you can name:
+
+  /text Enter   forward to the next "text"       ?text Enter   backward
+  n   repeat the search, same direction          N   opposite direction
+  *   search for the word under the cursor       #   the same, backward
+
+Type just enough to be unique: /scanT is fine. Searches wrap around the end
+of the file. A search is a motion too: d/text Enter deletes up to the match.
+
+To rename by hand: *N searches the word and comes back to it. Change it
+with cw, then n. takes each following match.
+
+== Jump to the timeout with /scanT Enter and change 3000 to 8000. Then jump
+== back up with ?maxS Enter and change 25 to 100.
+export const uploadLimits = {
+  maxFiles: 10,
+  maxSizeMb: 25,
+  allowedTypes: ["png", "jpg", "pdf"],
+  scanTimeoutMs: 3000,
+  retainDays: 30,
+};
+-- /scanT<CR>
+-- 2wcw8000<Esc>
+-- ?maxS<CR>
+-- 2wcw100<Esc>
+== Rename tally to sumMs: cursor on the first tally, *N (search it, come
+== back), cw it, then n. n. changes the other two.
+let tally = 0;
+for (const ms of samples) {
+  tally += ms;
+}
+report.averageMs = tally / samples.length;
+-- w
+-- *N
+-- cwsumMs<Esc>
+-- n.n.
+== Go to quotaLeft in the return line (/return Enter, then w). # jumps back
+== to its previous use: change that < to <=.
+async function checkQuota(tenant: Tenant, usage: Usage) {
+  const quotaLeft = tenant.plan.monthlyQuota - usage.total;
+  if (quotaLeft < 0) {
+    await notifier.warn(tenant.owner);
+  }
+  return quotaLeft;
+}
+-- /return<CR>w
+-- #
+-- f<lt>a=<Esc>
+== Drop the two middle conditions: /acct.v Enter lands on acct.verified,
+== then d/acct.p Enter deletes everything up to acct.plan.
+if (acct.active && acct.verified && !acct.suspended && acct.plan === "pro") {
+  enableExports(acct);
+}
+-- /acct.v<CR>
+-- d/acct.p<CR>

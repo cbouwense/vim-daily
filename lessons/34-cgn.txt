@@ -1,0 +1,54 @@
+title: Change the next match: cgn
+keys: gn  cgn  dgn  n  .
+require: cgn :: cgn
+require: dgn :: dgn
+require: cgn.{1,80}?<Esc>n*\. :: cgn, then dot to repeat it
+ext: ts
+
+gn is a text object: "the next match of the last search". With c and dot it
+makes a rename you can watch, one match at a time:
+
+  *  or  /text     search first; this sets the pattern
+  cgn new Esc      change the match under the cursor, or else the next one
+  .                repeat on the following match: no n needed in between
+  n                just look at the next match; press n again to leave it
+  dgn              delete the next match; dot repeats that too
+
+Unlike :%s you see every match before it changes, and can skip some.
+
+== Rename tmpLst to orders: cursor on tmpLst, press * to search for it, then
+== cgn, type orders, Esc. Press dot twice for the other two.
+const tmpLst = await fetchOrders(customerId);
+if (tmpLst.length === 0) {
+  return [];
+}
+return tmpLst.map(toSummary);
+-- w
+-- *
+-- cgnorders<Esc>
+-- ..
+== Fix the spelling inside all three names: search with /Reciept and Enter,
+== then cgn, type Receipt, Esc, and dot twice.
+export function printReciept(order: Order) {
+  const view = new RecieptView(order);
+  return emailReciept(view.render());
+}
+-- /Reciept<CR>
+-- cgnReceipt<Esc>
+-- ..
+== From line {L}: /zoneFee and Enter, cgn, type deliveryFee, Esc. The log
+== message keeps the old name: n shows it, n again moves past it, then dot.
+const zoneFee = lookupFee(parcel.zone);
+log.info("zoneFee computed");
+return base + zoneFee;
+-- /zoneFee<CR>
+-- cgndeliveryFee<Esc>
+-- nn.
+== Strip the prefix from all three names: search with /acmeLegacy_ and Enter,
+== delete the first match with dgn, then dot twice.
+const acmeLegacy_user = session.user;
+const acmeLegacy_cart = session.cart;
+const acmeLegacy_locale = session.locale;
+-- /acmeLegacy_<CR>
+-- dgn
+-- ..

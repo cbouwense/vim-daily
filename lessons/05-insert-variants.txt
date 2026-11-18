@@ -1,0 +1,45 @@
+title: More ways into Insert: a A I o O
+keys: a  A  I  o  O
+require: A :: A
+require: I :: I
+require: o :: o
+require: O :: O
+require: ea :: a
+ext: ts
+
+Five more ways into INSERT mode, each saving you a move:
+
+  a   append after the cursor         A   append at the end of the line
+  I   insert at the first non-blank character of the line
+  o   open a new line below           O   open a new line above
+
+i inserts before the cursor, a after it. A replaces "$ then a".
+o and O keep the indentation of the line you were on.
+
+== Add the missing semicolons to lines 1 and 3 with A.
+const a = 1
+const b = 2;
+const c = 3
+-- A;<Esc>
+-- jj
+-- A;<Esc>
+== Make both fields readonly: I, then type "readonly " (with the space).
+    name: string;
+    age: number;
+-- Ireadonly <Esc>
+-- j
+-- Ireadonly <Esc>
+== With o, open a line below the first import and type:  import { b } from "./b";
+import { a } from "./a";
+import { c } from "./c";
+-- oimport { b } from "./b";<Esc>
+== On the db.write line press O and type:  validate(user);
+function save(user: User) {
+  db.write(user);
+}
+-- j
+-- Ovalidate(user);<Esc>
+== Make the first "user" read "userId": e (twice) to the end of the word, then a.
+const user = session.user;
+-- ee
+-- aId<Esc>

@@ -1,0 +1,41 @@
+title: Change and replace: c r
+keys: c{motion}  cw  cc  C  r
+require: c\d*[we] :: cw
+require: cc :: cc
+require: C|c\$ :: C or c$
+require: r. :: r
+ext: ts
+
+c is the change operator: it deletes what the motion covers and drops you
+straight into INSERT mode to type the replacement.
+
+  cw   change to the end of the word       C    change to the end of the line
+  cc   change the whole line (the indentation stays)
+  r    replace the one character under the cursor, without INSERT mode
+
+cw + new text + Esc is a single change: u undoes it in one step, and
+tomorrow's dot command can repeat it. Prefer cw over "dw then i".
+
+== Rename foo to total: cursor on foo, cw, type total, Esc.
+let foo = computeTotal(items);
+-- w
+-- cwtotal<Esc>
+== Cursor on the opening quote, then C and retype the rest:  "Hello, world";
+const greeting = "Helo, wrold!!";
+-- f"
+-- C"Hello, world";<Esc>
+== Change the whole middle line with cc to:  return setup();
+function init() {
+  console.log("TODO");
+}
+-- j
+-- ccreturn setup();<Esc>
+== Fix three typos with r so the line reads:  const value = 1;
+cosnt valve = 1;
+-- ll
+-- rn
+-- l
+-- rs
+-- w
+-- lll
+-- ru

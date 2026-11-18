@@ -1,0 +1,72 @@
+title: Search every file: :vimgrep and quickfix
+keys: :vimgrep  :cn  :cp  :copen  :cdo
+require: :vim(grep)?\s :: :vimgrep
+require: :cn :: :cn
+require: :cope?n? :: :copen
+require: :cdo\s :: :cdo
+ext: ts
+
+Search all files, then walk the matches. :vimgrep fills the quickfix list:
+
+  :vimgrep /TODO/ *.ts      every TODO in the .ts files here (**/*.ts recurses)
+  :cn  :cp                  jump to the next / previous match
+  :copen  :cclose           show / hide the list; Enter on a line jumps to it
+  :cdo s/old/new/ | update  run a command on every match and save each file
+
+Save with :w before :vimgrep or :cn takes you to another file (E37 again).
+:Rg from fzf.vim is the interactive cousin. Compiler errors from :make land
+in the same list, so :cn and :cp are worth getting used to.
+
+== Three files still call legacyLog. :w, then ":vimgrep /legacyLog/ *.ts".
+== Change the first match to logger (cw), :w, :cn, dot. Repeat for the third.
+@ file: billing-job.ts
+export function runBilling() {
+  legacyLog("billing started");
+}
+@ file: cleanup-job.ts
+export function runCleanup() {
+  legacyLog("cleanup started");
+}
+@ file: export-job.ts
+export function runExport() {
+  legacyLog("export started");
+}
+-- :vimgrep /legacyLog/ *.ts<CR>
+-- cwlogger<Esc>
+-- :w<CR>
+-- :cn<CR>
+-- .
+-- :w<CR>
+-- :cn<CR>
+-- .
+== Rename fetchUsr to loadUser in every file at once:
+== ":vimgrep /fetchUsr/ *.ts" and then ":cdo s/fetchUsr/loadUser/ | update"
+@ file: user-list.ts
+import { fetchUsr } from "./users";
+
+export const list = (ids: string[]) => ids.map((id) => fetchUsr(id));
+@ file: user-card.ts
+import { fetchUsr } from "./users";
+
+export const card = (id: string) => render(fetchUsr(id));
+@ file: user-menu.ts
+import { fetchUsr } from "./users";
+
+export const menu = (id: string) => items(fetchUsr(id));
+-- :vimgrep /fetchUsr/ *.ts<CR>
+-- :cdo s/fetchUsr/loadUser/ <Bar> update<CR>
+== ":vimgrep /DEPRECATED/ *.ts" finds three lines. Open the list with :copen,
+== move to the one that says "remove now", press Enter, and delete that line.
+@ file: legacy-auth.ts
+// DEPRECATED: kept for the mobile app
+export const oldLogin = () => null;
+// DEPRECATED: kept for partner API v1
+export const oldToken = () => null;
+@ file: legacy-session.ts
+// DEPRECATED: remove now
+export const oldSession = () => null;
+-- :vimgrep /DEPRECATED/ *.ts<CR>
+-- :copen<CR>
+-- jj
+-- <CR>
+-- dd

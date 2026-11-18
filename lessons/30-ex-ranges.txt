@@ -1,0 +1,72 @@
+title: Ex commands on line ranges: :d :t :m
+keys: :{range}d  :{range}t{line}  :{range}m{line}  .  +n  '<,'>
+require: :(?:[-+.,$\d{}L]|<BS>)+d<CR> :: :d with a range
+require: :(?:[-+.,$\d{}L]|<BS>)*t ?(?:[-+.$\d{}L]|<BS>)+<CR> :: :t (copy lines)
+require: :(?:[-+.,$\d{}L]|<BS>)*m ?(?:[-+.$\d{}L]|<BS>)+<CR> :: :m (move lines)
+require: :\.,\+\d :: a range with . and +n
+require: V[^:]{0,9}:[dtm] :: V then : (the '<,'> range)
+ext: java
+
+An ex command can take a range of lines in front. It then works on those
+lines wherever the cursor is, so you never have to travel there:
+
+  :12,15d      delete lines 12 to 15       :12d    delete just line 12
+  :12,15t20    copy them to below line 20  :t.     duplicate this line
+  :12,15m20    move them to below line 20  :m+1    move this line down one
+
+A line is a number, . (the current line), $ (the last line) or an offset
+from one: :.,+2d deletes this line and the two below it.
+
+Select lines with V and press : and vim fills in '<,'> for you: the range
+"from the first selected line to the last".
+
+== Delete the three println lines without moving the cursor to them:
+== type  :{L+1},{L+3}d  and Enter.
+public void importRows(List<Row> rows) {
+  System.out.println("rows: " + rows.size());
+  System.out.println("first: " + rows.get(0));
+  System.out.println("thread: " + Thread.currentThread());
+  rows.forEach(this::save);
+}
+-- :{L+1},{L+3}d<CR>
+== lastName needs the same two annotations. Copy lines {L} and {L+1} to below
+== the blank line {L+3}:  :{L},{L+1}t{L+3}
+@NotBlank
+@Size(max = 80)
+private String firstName;
+
+private String lastName;
+-- :{L},{L+1}t{L+3}<CR>
+== The return statement comes too early. Move line {L+1} to below line {L+3}
+== with  :{L+1}m{L+3}
+public Invoice build() {
+  return new Invoice(customer, lines, total);
+  validate(lines);
+  BigDecimal total = sum(lines);
+}
+-- :{L+1}m{L+3}<CR>
+== Put the cursor on the "case LEGACY:" line and delete it together with the
+== two lines below it:  :.,+2d
+switch (status) {
+  case PENDING:
+    return "Waiting";
+  case LEGACY:
+    log.warn("legacy status");
+    return "Unknown";
+  default:
+    return "Unknown";
+}
+-- 3j
+-- :.,+2d<CR>
+== Fields belong at the top of the class. Select the two field lines with Vj,
+== press : (vim types '<,'> for you) and finish the command:  m{L}
+class ReportJob {
+  void run() {
+    render(load());
+  }
+  private final Mailer mailer;
+  private final Clock clock;
+}
+-- 4j
+-- Vj
+-- :m{L}<CR>

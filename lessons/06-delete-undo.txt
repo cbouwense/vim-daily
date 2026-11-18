@@ -1,0 +1,43 @@
+title: Delete and undo: x dd u Ctrl-r
+keys: x  dd  u  Ctrl-r
+require: x :: x
+require: dd :: dd
+require: u :: u
+require: <C-r> :: Ctrl-r
+ext: ts
+
+Deleting, and taking it back:
+
+  x        delete the character under the cursor
+  dd       delete the whole line
+  u        undo the last change (press again to go further back)
+  Ctrl-r   redo what you just undid
+
+One visit to INSERT mode is one change, so u removes everything typed since
+you pressed i. Short visits to INSERT mode keep your undo steps small.
+
+== Two words have a doubled letter. Delete the extra l and the extra c with x.
+const totall = pricce * 2;
+-- fl
+-- x
+-- fc
+-- x
+== Delete both console.log lines with dd.
+const a = 1;
+console.log("debug a", a);
+const b = 2;
+console.log("debug b", b);
+-- j
+-- dd
+-- j
+-- dd
+== Delete the "keep" line by mistake (dd) and bring it back with u. Delete
+== the "remove" line instead. Then press u and Ctrl-r to watch it return and go.
+const keep = true;
+const remove = true;
+-- dd
+-- u
+-- j
+-- dd
+-- u
+-- <C-r>

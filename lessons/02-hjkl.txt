@@ -1,0 +1,46 @@
+title: Moving with h j k l
+keys: h  j  k  l
+require: [hjkl] :: h j k l
+ext: ts
+
+In NORMAL mode four home-row keys move the cursor:
+
+            k (up)
+  h (left)          l (right)
+            j (down)
+
+j hangs below the line like a down arrow; h is the leftmost key, l the rightmost.
+Your fingers already rest there, which is the point. From today the arrow keys
+are switched off in practice. Hold a key down to keep moving. Faster ways to
+cross a line come next week. Press Esc to get back to NORMAL mode before moving.
+
+== Go down to the "let b" line, right onto the ; and insert 2.
+let a = 1;
+let b = ;
+let c = 3;
+-- j
+-- llllllll
+-- i2<Esc>
+== On the last line insert the missing e of "true". Then go up one line (k),
+== left (h) onto the second quote, and insert Ada between the quotes.
+id: 1,
+name: "",
+active: tru,
+-- jj
+-- lllllllllll
+-- ie<Esc>
+-- kh
+-- iAda<Esc>
+== Fill both gaps: insert 9 in the bottom row, then go up (k) and back (h)
+== to insert 5 in the middle row.
+const grid = [
+  [1, 2, 3],
+  [4, , 6],
+  [7, 8, ],
+];
+-- jjj
+-- lllllllll
+-- i9<Esc>
+-- k
+-- hhh
+-- i5<Esc>
