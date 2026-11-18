@@ -833,6 +833,22 @@ def cmd_run(args: argparse.Namespace) -> None:
         ask("\nPress Enter to close. ")
 
 
+def cmd_next(_: argparse.Namespace) -> None:
+    sync_pull()
+    ensure_started()
+    lessons = load_lessons()
+    lesson = next_lesson(load_state(), lessons)
+    if lesson is None:
+        print("Curriculum complete.")
+        return
+    outcome = run_session(lesson_session(lesson, lessons), load_targets())
+    if outcome is None:
+        print(f"Lesson {lesson.num} stays open.")
+        return
+    record(outcome, lesson.id)
+    print(f"Lesson {lesson.num} done ahead of schedule; that day's lesson is now the one after it.")
+
+
 def cmd_skip(_: argparse.Namespace) -> None:
     sync_pull()
     ensure_started()
@@ -1083,6 +1099,7 @@ def main() -> None:
     sub = parser.add_subparsers(dest="command")
     run = sub.add_parser("run", help="take whatever is due today (the default)")
     run.add_argument("--window", action="store_true", help=argparse.SUPPRESS)
+    sub.add_parser("next", help="take the next lesson now, ahead of schedule (recorded)")
     sub.add_parser("skip", help="mark the next lesson as already known")
     sub.add_parser("status", help="show progress")
     practice = sub.add_parser("practice", help="repeat a lesson or a review without recording it")
@@ -1092,7 +1109,7 @@ def main() -> None:
     sub.add_parser("install", help="add the vimdaily command and the weekday schedule on this machine")
     sub.add_parser("uninstall", help="remove the command and the schedule")
     args = parser.parse_args()
-    handlers = {"run": cmd_run, "skip": cmd_skip, "status": cmd_status, "practice": cmd_practice,
+    handlers = {"run": cmd_run, "next": cmd_next, "skip": cmd_skip, "status": cmd_status, "practice": cmd_practice,
                 "scheduled": cmd_scheduled, "install": cmd_install, "uninstall": cmd_uninstall}
     if args.command is None:
         args = parser.parse_args(["run"])

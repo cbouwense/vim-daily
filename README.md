@@ -49,6 +49,7 @@ tell NORMAL-mode commands from typed text, so treat it as a nudge.
 ```
 vimdaily               take whatever is due today
 vimdaily status        progress and the full lesson list
+vimdaily next          take the next lesson now, ahead of schedule
 vimdaily skip          mark the next lesson as already known
 vimdaily practice 7    repeat lesson 7 (not recorded)
 vimdaily practice review
