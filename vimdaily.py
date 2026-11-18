@@ -923,7 +923,8 @@ def open_window() -> None:
         launcher = cache_dir() / "vim-daily.command"
         launcher.write_text(f'#!/bin/sh\nexec "{python}" "{script}" run --window\n', encoding="utf-8")
         launcher.chmod(0o755)
-        subprocess.Popen(["open", "-a", "Terminal", str(launcher)])
+        # Wait for `open` to hand over to Terminal: launchd kills a job's children when the job exits.
+        subprocess.run(["open", "-a", "Terminal", str(launcher)], check=False)
     else:
         terminal = shutil.which("x-terminal-emulator") or shutil.which("gnome-terminal") or shutil.which("xterm")
         if terminal is None:
